@@ -222,6 +222,32 @@
       text-align: center;
       position: relative;
       background: radial-gradient(ellipse 60% 50% at 50% 60%, #111 0%, #000 100%);
+      overflow: hidden; /* AGREGADO para el recorte del video */
+    }
+
+    /* AGREGADO: Capa del video */
+    .video-bg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: 0;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      opacity: 0.35; /* Ajusta este valor si quieres el video más claro o más oscuro */
+      pointer-events: none; /* Evita interactuar con el video por error */
+    }
+
+    /* AGREGADO: Contenedor para que el texto esté encima del video */
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .hero-badge {
@@ -325,6 +351,7 @@
       flex-direction: column;
       align-items: center;
       gap: 8px;
+      z-index: 1; /* AGREGADO para estar sobre el video */
     }
 
     .hero-scroll span {
@@ -1009,7 +1036,7 @@
       fill: var(--text-primary);
     }
 
-    /* --- NUEVO: Estilos de la portada animada en el reproductor --- */
+    /* --- Portada animada en el reproductor --- */
     .player-cover {
       width: 44px;
       height: 44px;
@@ -1035,7 +1062,6 @@
       0% { opacity: 0; transform: scale(0.8) translateX(-10px); }
       100% { opacity: 1; transform: scale(1) translateX(0); }
     }
-    /* ----------------------------------------------------------- */
 
     .player-track {
       display: flex;
@@ -1203,16 +1229,24 @@
   </nav>
 
   <section class="hero" id="home">
-    <div class="hero-badge">MUSIC PRODUCTION SERVICE · Est. 2014</div>
-    <h1 class="hero-title">SADBOIWITHSAUCE<br /><em>MIX & MASTER</em><br />BEATS</h1>
-    <p class="hero-sub">
-      Professional production with over 10 years of experience. Authentic sound, ready for market.</p>
-    <div class="hero-actions">
-      <button class="btn-primary" onclick="document.getElementById('beats').scrollIntoView({behavior:'smooth'})">Explore
-        Catalog</button>
-      <button class="btn-ghost"
-        onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">Licenses</button>
+    
+    <video autoplay muted loop playsinline class="video-bg">
+      <source src="https://www.dropbox.com/scl/fi/lsyk7lue4468kyqpjxhvx/1210.mp4?rlkey=k7zh6shdd3kvi0dvjsprsamga&st=6og9fmkk&raw=1" type="video/mp4">
+    </video>
+
+    <div class="hero-content">
+      
+      <h1 class="hero-title">SADBOIWITHSAUCE<br /><em>MIX & MASTER</em><br />BEATS</h1>
+      <p class="hero-sub">
+        Professional production with over 10 years of experience. Authentic sound, ready for market.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="document.getElementById('beats').scrollIntoView({behavior:'smooth'})">Explore
+          Catalog</button>
+        <button class="btn-ghost"
+          onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">Licenses</button>
+      </div>
     </div>
+
     <div class="hero-scroll">
       <div class="scroll-line"></div>
       <span>Scroll</span>
@@ -1580,7 +1614,6 @@ Professional mixing for your song. World-class balancing, EQ, dynamics, and effe
     const timeDuration = document.getElementById('timeDuration');
     const bgImage = document.getElementById('bg-image');
     
-    // NUEVO: Referencia al contenedor y a la imagen
     const playerCoverContainer = document.getElementById('playerCoverContainer');
     const playerImage = document.getElementById('playerImage');
 
@@ -1657,7 +1690,6 @@ Professional mixing for your song. World-class balancing, EQ, dynamics, and effe
           bgImage.style.opacity = '0.3';
         }
 
-        // NUEVO: Mostramos la portada dentro del reproductor
         playerImage.src = beat.image;
         playerCoverContainer.classList.add('visible');
 
@@ -1725,7 +1757,6 @@ Professional mixing for your song. World-class balancing, EQ, dynamics, and effe
       resetAllRows();
       playerEl.classList.remove('visible');
       
-      // NUEVO: Ocultamos la portada al cerrar la barra
       playerCoverContainer.classList.remove('visible');
       
       progressFill.style.width = '0%';
