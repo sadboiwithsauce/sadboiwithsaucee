@@ -5,6 +5,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SADBOIWITHSAUCE — Premium Beats & Production</title>
+  
+  <meta property="og:title" content="SADBOIWITHSAUCE — Premium Beats" />
+  <meta property="og:description" content="Professional beat production. Mix & Master. Authentic sound ready for market." />
+  <meta property="og:type" content="website" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -51,7 +56,6 @@
       opacity: 0.4;
     }
 
-    /* Fondo Dinamico Agregado */
     #bg-overlay {
       position: fixed;
       inset: 0;
@@ -67,26 +71,14 @@
       transition: opacity 1s ease-in-out;
     }
 
-    /* Scrollbar */
-    ::-webkit-scrollbar {
-      width: 4px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--bg);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--border-bright);
-      border-radius: 2px;
-    }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 2px; }
 
     /* Nav */
     #navbar {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       z-index: 100;
       background: rgba(0, 0, 0, 0.85);
       backdrop-filter: blur(20px);
@@ -105,1098 +97,332 @@
     }
 
     .logo {
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 0.18em;
-      color: var(--text-primary);
-      text-decoration: none;
-      text-transform: uppercase;
+      font-size: 13px; font-weight: 800; letter-spacing: 0.18em;
+      color: var(--text-primary); text-decoration: none; text-transform: uppercase;
     }
+    .logo span { color: var(--text-secondary); }
 
-    .logo span {
-      color: var(--text-secondary);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 36px;
-      align-items: center;
-    }
-
+    .nav-links { display: flex; gap: 36px; align-items: center; }
     .nav-links a {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: color 0.2s;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--text-secondary);
+      text-decoration: none; transition: color 0.2s;
     }
-
-    .nav-links a:hover {
-      color: var(--text-primary);
-    }
+    .nav-links a:hover { color: var(--text-primary); }
 
     .nav-cta {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--bg) !important;
-      background: var(--text-primary);
-      padding: 9px 20px;
-      border-radius: 3px;
-      transition: background 0.2s, color 0.2s !important;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--bg) !important;
+      background: var(--text-primary); padding: 9px 20px;
+      border-radius: 3px; transition: background 0.2s, color 0.2s !important;
     }
-
     .nav-cta:hover {
-      background: var(--text-secondary) !important;
-      color: var(--bg) !important;
+      background: var(--text-secondary) !important; color: var(--bg) !important;
     }
 
-    /* Hamburger */
     #hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 4px;
+      display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px;
     }
-
-    #hamburger span {
-      display: block;
-      width: 22px;
-      height: 1.5px;
-      background: var(--text-primary);
-      transition: all 0.3s;
-    }
+    #hamburger span { display: block; width: 22px; height: 1.5px; background: var(--text-primary); transition: all 0.3s; }
 
     #mobile-menu {
-      display: none;
-      flex-direction: column;
-      gap: 0;
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      padding: 0;
+      display: none; flex-direction: column; gap: 0; background: var(--surface);
+      border-top: 1px solid var(--border); padding: 0;
     }
-
     #mobile-menu a {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-secondary);
-      text-decoration: none;
-      padding: 16px 24px;
-      border-bottom: 1px solid var(--border);
-      transition: color 0.2s, background 0.2s;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--text-secondary);
+      text-decoration: none; padding: 16px 24px; border-bottom: 1px solid var(--border);
     }
-
-    #mobile-menu a:hover {
-      color: var(--text-primary);
-      background: var(--card);
-    }
-
-    #mobile-menu.open {
-      display: flex;
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-
-      #hamburger {
-        display: flex;
-      }
-    }
+    #mobile-menu.open { display: flex; }
 
     /* Hero */
     .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 120px 24px 80px;
-      text-align: center;
-      position: relative;
+      min-height: 100vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 120px 24px 80px; text-align: center; position: relative;
       background: radial-gradient(ellipse 60% 50% at 50% 60%, #111 0%, #000 100%);
-      overflow: hidden; /* AGREGADO para el recorte del video */
+      overflow: hidden;
     }
 
-    /* AGREGADO: Capa del video */
     .video-bg {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      z-index: 0;
-      transform: translate(-50%, -50%);
-      object-fit: cover;
-      opacity: 0.35; /* Ajusta este valor si quieres el video más claro o más oscuro */
-      pointer-events: none; /* Evita interactuar con el video por error */
+      position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%;
+      width: auto; height: auto; z-index: 0; transform: translate(-50%, -50%);
+      object-fit: cover; opacity: 0.35; pointer-events: none;
     }
 
-    /* AGREGADO: Contenedor para que el texto esté encima del video */
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+    .hero-content { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; }
 
     .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      border: 1px solid var(--border);
-      padding: 7px 14px;
-      border-radius: 2px;
-      margin-bottom: 36px;
-    }
-
-    .hero-badge::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      background: #3a3a3a;
-      border-radius: 50%;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'JetBrains Mono', monospace; font-size: 10px;
+      letter-spacing: 0.2em; color: var(--text-muted);
+      text-transform: uppercase; border: 1px solid var(--border);
+      padding: 7px 14px; border-radius: 2px; margin-bottom: 36px;
     }
 
     .hero-title {
-      font-size: clamp(36px, 7vw, 88px);
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      line-height: 1.0;
-      color: var(--text-primary);
-      margin-bottom: 22px;
-      text-transform: uppercase;
+      font-size: clamp(36px, 7vw, 88px); font-weight: 900;
+      letter-spacing: -0.02em; line-height: 1.0; color: var(--text-primary);
+      margin-bottom: 22px; text-transform: uppercase;
     }
-
-    .hero-title em {
-      font-style: normal;
-      color: var(--text-secondary);
-    }
+    .hero-title em { font-style: normal; color: var(--text-secondary); }
 
     .hero-sub {
-      font-size: clamp(13px, 1.5vw, 16px);
-      font-weight: 400;
-      color: var(--text-secondary);
-      letter-spacing: 0.02em;
-      max-width: 420px;
-      margin: 0 auto 44px;
-      line-height: 1.6;
+      font-size: clamp(13px, 1.5vw, 16px); font-weight: 400;
+      color: var(--text-secondary); letter-spacing: 0.02em;
+      max-width: 420px; margin: 0 auto 44px; line-height: 1.6;
     }
 
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
 
     .btn-primary {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      background: var(--text-primary);
-      color: var(--bg);
-      border: none;
-      padding: 14px 32px;
-      border-radius: 3px;
-      cursor: pointer;
-      transition: background 0.2s;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; background: var(--text-primary);
+      color: var(--bg); border: none; padding: 14px 32px;
+      border-radius: 3px; cursor: pointer; transition: background 0.2s;
     }
-
-    .btn-primary:hover {
-      background: #c8c8c8;
-    }
+    .btn-primary:hover { background: #c8c8c8; }
 
     .btn-ghost {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      background: transparent;
-      color: var(--text-secondary);
-      border: 1px solid var(--border-bright);
-      padding: 14px 32px;
-      border-radius: 3px;
-      cursor: pointer;
-      transition: all 0.2s;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; background: transparent;
+      color: var(--text-secondary); border: 1px solid var(--border-bright);
+      padding: 14px 32px; border-radius: 3px; cursor: pointer; transition: all 0.2s;
     }
-
-    .btn-ghost:hover {
-      border-color: var(--text-muted);
-      color: var(--text-primary);
-    }
+    .btn-ghost:hover { border-color: var(--text-muted); color: var(--text-primary); }
 
     .hero-scroll {
-      position: absolute;
-      bottom: 32px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      z-index: 1; /* AGREGADO para estar sobre el video */
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 1;
     }
-
-    .hero-scroll span {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.2em;
-      color: var(--text-muted);
-      text-transform: uppercase;
-    }
+    .hero-scroll span { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.2em; color: var(--text-muted); text-transform: uppercase; }
 
     .scroll-line {
-      width: 1px;
-      height: 40px;
-      background: linear-gradient(to bottom, var(--border-bright), transparent);
+      width: 1px; height: 40px; background: linear-gradient(to bottom, var(--border-bright), transparent);
       animation: scrollAnim 2s ease-in-out infinite;
     }
-
     @keyframes scrollAnim {
-
-      0%,
-      100% {
-        opacity: 0.3;
-        transform: scaleY(0.6) translateY(-5px)
-      }
-
-      50% {
-        opacity: 1;
-        transform: scaleY(1) translateY(5px)
-      }
+      0%, 100% { opacity: 0.3; transform: scaleY(0.6) translateY(-5px) }
+      50% { opacity: 1; transform: scaleY(1) translateY(5px) }
     }
 
     /* Section base */
-    .section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 100px 24px;
-    }
+    .section { max-width: 1200px; margin: 0 auto; padding: 100px 24px; }
+    .section-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--text-muted); text-transform: uppercase; margin-bottom: 14px; }
+    .section-title { font-size: clamp(24px, 3.5vw, 38px); font-weight: 800; letter-spacing: -0.01em; color: var(--text-primary); text-transform: uppercase; margin-bottom: 6px; }
+    .section-sep { width: 32px; height: 1px; background: var(--border-bright); margin: 18px 0 48px; }
 
-    .section-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      margin-bottom: 14px;
+    /* FILTERS UI */
+    .filter-container {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px; margin-bottom: 24px;
     }
+    
+    .search-box {
+      background: var(--card); border: 1px solid var(--border); border-radius: 3px;
+      padding: 10px 16px; font-size: 11px; color: var(--text-primary);
+      font-family: 'JetBrains Mono', monospace; width: 100%; max-width: 300px; outline: none;
+    }
+    .search-box:focus { border-color: var(--text-secondary); }
 
-    .section-title {
-      font-size: clamp(24px, 3.5vw, 38px);
-      font-weight: 800;
-      letter-spacing: -0.01em;
-      color: var(--text-primary);
-      text-transform: uppercase;
-      margin-bottom: 6px;
+    .filter-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-tag {
+      font-family: 'JetBrains Mono', monospace; font-size: 9px;
+      letter-spacing: 0.1em; color: var(--text-muted); background: transparent;
+      border: 1px solid var(--border); padding: 8px 16px; border-radius: 3px;
+      cursor: pointer; transition: all 0.2s; text-transform: uppercase;
     }
-
-    .section-sep {
-      width: 32px;
-      height: 1px;
-      background: var(--border-bright);
-      margin: 18px 0 48px;
-    }
+    .filter-tag:hover { color: var(--text-primary); border-color: var(--border-bright); }
+    .filter-tag.active { color: var(--bg); background: var(--text-primary); border-color: var(--text-primary); font-weight: bold; }
 
     /* Beat Catalog */
-    #beats {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .beat-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .beat-table thead tr {
-      border-bottom: 1px solid var(--border);
-    }
-
+    #beats { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .beat-table { width: 100%; border-collapse: collapse; }
+    .beat-table thead tr { border-bottom: 1px solid var(--border); }
     .beat-table thead th {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.2em;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      padding: 12px 16px;
-      text-align: left;
-      font-weight: 500;
+      font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.2em;
+      color: var(--text-muted); text-transform: uppercase; padding: 12px 16px; text-align: left; font-weight: 500;
     }
-
-    .beat-row {
-      border-bottom: 1px solid var(--border);
-      transition: background 0.2s;
-      cursor: pointer;
-    }
-
-    .beat-row:hover {
-      background: var(--card-hover);
-    }
-
-    .beat-row td {
-      padding: 16px 16px;
-      vertical-align: middle;
-    }
-
-    .beat-num {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      color: var(--text-muted);
-      width: 36px;
-    }
+    .beat-row { border-bottom: 1px solid var(--border); transition: background 0.2s; cursor: pointer; }
+    .beat-row:hover { background: var(--card-hover); }
+    .beat-row td { padding: 16px 16px; vertical-align: middle; }
+    .beat-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-muted); width: 36px; }
 
     .play-btn {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      border: 1px solid var(--border-bright);
-      background: transparent;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s;
-      flex-shrink: 0;
+      width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--border-bright);
+      background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s; flex-shrink: 0;
     }
+    .play-btn:hover { border-color: var(--text-secondary); background: var(--card-hover); }
+    .play-btn.playing { border-color: var(--text-primary); background: var(--text-primary); }
+    .play-btn svg { width: 12px; height: 12px; fill: var(--text-primary); }
+    .play-btn.playing svg { fill: var(--bg); }
 
-    .play-btn:hover {
-      border-color: var(--text-secondary);
-      background: var(--card-hover);
+    .fav-btn {
+      background: transparent; border: none; cursor: pointer; color: var(--text-muted);
+      transition: color 0.2s; padding: 5px;
     }
+    .fav-btn:hover { color: #ff4757; }
+    .fav-btn.active { color: #ff4757; }
+    .fav-btn svg { width: 16px; height: 16px; fill: currentColor; }
 
-    .play-btn.playing {
-      border-color: var(--text-primary);
-      background: var(--text-primary);
-    }
-
-    .play-btn svg {
-      width: 12px;
-      height: 12px;
-      fill: var(--text-primary);
-    }
-
-    .play-btn.playing svg {
-      fill: var(--bg);
-    }
-
-    .beat-name {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text-primary);
-      letter-spacing: 0.01em;
-    }
-
-    .beat-genre {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      color: var(--text-muted);
-      letter-spacing: 0.1em;
-      margin-top: 3px;
-    }
-
-    .beat-meta {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      color: var(--text-secondary);
-    }
-
-    .beat-meta span {
-      color: var(--text-muted);
-      font-size: 10px;
-      display: block;
-      margin-top: 2px;
-    }
+    .beat-name { font-size: 14px; font-weight: 700; color: var(--text-primary); letter-spacing: 0.01em; }
+    .beat-genre { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-muted); letter-spacing: 0.1em; margin-top: 3px; }
+    .beat-meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary); }
+    .beat-meta span { color: var(--text-muted); font-size: 10px; display: block; margin-top: 2px; }
 
     .buy-btn {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      background: transparent;
-      color: var(--text-primary);
-      border: 1px solid var(--border-bright);
-      padding: 9px 18px;
-      border-radius: 3px;
-      cursor: pointer;
-      transition: all 0.2s;
-      white-space: nowrap;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      background: transparent; color: var(--text-primary); border: 1px solid var(--border-bright);
+      padding: 9px 18px; border-radius: 3px; cursor: pointer; transition: all 0.2s; white-space: nowrap;
     }
-
-    .buy-btn:hover {
-      background: var(--text-primary);
-      color: var(--bg);
-      border-color: var(--text-primary);
-    }
-
-    .waveform {
-      display: flex;
-      align-items: center;
-      gap: 2px;
-      height: 28px;
-    }
-
-    .waveform-bar {
-      width: 2px;
-      border-radius: 1px;
-      background: var(--border-bright);
-      transition: background 0.3s;
-    }
-
-    .beat-row.active .waveform-bar {
-      background: var(--text-secondary);
-    }
-
-    .beat-row.active .waveform-bar:nth-child(odd) {
-      animation: waveAnim 0.8s ease-in-out infinite alternate;
-    }
-
-    .beat-row.active .waveform-bar:nth-child(even) {
-      animation: waveAnim 0.8s ease-in-out 0.4s infinite alternate;
-    }
-
-    @keyframes waveAnim {
-      0% {
-        transform: scaleY(0.4)
-      }
-
-      100% {
-        transform: scaleY(1)
-      }
-    }
-
-    @media (max-width: 768px) {
-      .beat-table thead {
-        display: none;
-      }
-
-      .beat-table,
-      .beat-table tbody,
-      .beat-row,
-      .beat-row td {
-        display: block;
-        width: 100%;
-      }
-
-      .beat-row {
-        padding: 16px 0;
-      }
-
-      .beat-row td {
-        padding: 4px 0;
-        border: none;
-      }
-
-      .beat-row td:first-child,
-      .beat-row td:last-child {
-        padding: 0;
-      }
-
-      .beat-mobile-row {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        padding: 0 16px;
-      }
-
-      .beat-mobile-info {
-        flex: 1;
-      }
-
-      .beat-mobile-meta {
-        display: flex;
-        gap: 16px;
-        padding: 8px 16px 0 68px;
-      }
-
-      .beat-mobile-buy {
-        padding: 10px 16px 0;
-      }
-
-      .hide-mobile {
-        display: none !important;
-      }
-
-      .waveform {
-        display: none;
-      }
-    }
-
-    /* Licensing */
-    .license-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-
-    @media (max-width: 768px) {
-      .license-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .license-card {
-      background: var(--card);
-      padding: 36px 28px;
-      position: relative;
-      transition: background 0.2s;
-    }
-
-    .license-card:hover {
-      background: var(--card-hover);
-    }
-
-    .license-card.featured {
-      background: #0f0f0f;
-    }
-
-    .license-card.featured::before {
-      content: 'MOST POPULAR';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.2em;
-      color: var(--text-muted);
-      background: var(--border-bright);
-      padding: 4px 12px;
-      border-radius: 0 0 3px 3px;
-    }
-
-    .license-tier {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    .license-price {
-      font-size: 40px;
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      color: var(--text-primary);
-      margin-bottom: 4px;
-    }
-
-    .license-price span {
-      font-size: 18px;
-      font-weight: 400;
-      color: var(--text-secondary);
-    }
-
-    .license-desc {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-bottom: 28px;
-    }
-
-    .license-features {
-      list-style: none;
-      margin-bottom: 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .license-features li {
-      font-size: 12px;
-      color: var(--text-secondary);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .license-features li::before {
-      content: '—';
-      color: var(--text-muted);
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    .license-features li.active {
-      color: var(--text-primary);
-    }
-
-    .license-features li.active::before {
-      content: '✓';
-      color: var(--text-primary);
-    }
-
-    .license-features li.inactive {
-      color: var(--text-muted);
-      text-decoration: line-through;
-      opacity: 0.4;
-    }
-
-    .license-features li.inactive::before {
-      content: '×';
-    }
-
-    /* Services */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-
-    @media (max-width: 768px) {
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .service-card {
-      background: var(--card);
-      padding: 40px 32px;
-      transition: background 0.2s;
-    }
-
-    .service-card:hover {
-      background: var(--card-hover);
-    }
-
-    .service-icon {
-      font-size: 28px;
-      margin-bottom: 20px;
-      opacity: 0.7;
-    }
-
-    .service-name {
-      font-size: 16px;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--text-primary);
-      margin-bottom: 10px;
-    }
-
-    .service-desc {
-      font-size: 13px;
-      color: var(--text-secondary);
-      line-height: 1.65;
-      margin-bottom: 20px;
-    }
-
-    .service-price {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      color: var(--text-muted);
-      letter-spacing: 0.05em;
-    }
-
-    /* Trust Strip */
-    #trust {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .trust-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 24px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 32px;
-      flex-wrap: wrap;
-    }
-
-    .trust-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.2em;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .trust-label::before {
-      content: '🔒';
-      font-size: 12px;
-    }
-
-    .trust-divider {
-      width: 1px;
-      height: 20px;
-      background: var(--border);
-    }
-
-    .trust-icons {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .trust-icon {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-      border: 1px solid var(--border);
-      padding: 5px 12px;
-      border-radius: 3px;
-    }
-
-    /* Contact */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-    }
-
-    @media (max-width: 768px) {
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .form-field {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      padding: 14px 16px;
-      font-size: 13px;
-      color: var(--text-primary);
-      font-family: 'Montserrat', sans-serif;
-      outline: none;
-      transition: border-color 0.2s;
-      resize: none;
-    }
-
-    .form-field::placeholder {
-      color: var(--text-muted);
-    }
-
-    .form-field:focus {
-      border-color: var(--border-bright);
-    }
-
-    .form-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-    }
-
-    .contact-item h4 {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      font-family: 'JetBrains Mono', monospace;
-      margin-bottom: 6px;
-    }
-
-    .contact-item p {
-      font-size: 14px;
-      color: var(--text-secondary);
-    }
-
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 32px 24px;
-    }
-
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: gap;
-    }
-
-    .footer-copy {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      color: var(--text-muted);
-      letter-spacing: 0.1em;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 24px;
-    }
-
-    .footer-links a {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover {
-      color: var(--text-secondary);
-    }
+    .buy-btn:hover { background: var(--text-primary); color: var(--bg); border-color: var(--text-primary); }
+
+    /* Licensing & Services */
+    .license-grid, .services-grid { display: grid; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .license-grid { grid-template-columns: repeat(3, 1fr); }
+    .services-grid { grid-template-columns: repeat(3, 1fr); }
+    .license-card, .service-card { background: var(--card); padding: 36px 28px; position: relative; transition: background 0.2s; }
+    .license-card:hover, .service-card:hover { background: var(--card-hover); }
+    .license-card.featured { background: #0f0f0f; }
+    
+    .license-tier { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; font-family: 'JetBrains Mono', monospace; }
+    .license-price { font-size: 40px; font-weight: 900; letter-spacing: -0.02em; color: var(--text-primary); margin-bottom: 4px; }
+    .license-price span { font-size: 18px; font-weight: 400; color: var(--text-secondary); }
+    .license-desc { font-size: 12px; color: var(--text-muted); margin-bottom: 28px; }
+    .license-features { list-style: none; margin-bottom: 32px; display: flex; flex-direction: column; gap: 10px; }
+    .license-features li { font-size: 12px; color: var(--text-secondary); display: flex; align-items: center; gap: 10px; }
+    .license-features li::before { content: '—'; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+    .license-features li.active { color: var(--text-primary); }
+    .license-features li.active::before { content: '✓'; color: var(--text-primary); }
+    .license-features li.inactive { color: var(--text-muted); text-decoration: line-through; opacity: 0.4; }
+    .license-features li.inactive::before { content: '×'; }
+
+    .service-icon { font-size: 28px; margin-bottom: 20px; opacity: 0.7; }
+    .service-name { font-size: 16px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-primary); margin-bottom: 10px; }
+    .service-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 20px; }
+    .service-price { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-muted); letter-spacing: 0.05em; }
+
+    #trust { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .trust-inner { max-width: 1200px; margin: 0 auto; padding: 24px 24px; display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; }
+    .trust-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.2em; color: var(--text-muted); text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+    .trust-label::before { content: '🔒'; font-size: 12px; }
+    .trust-divider { width: 1px; height: 20px; background: var(--border); }
+    .trust-icons { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: center; }
+    .trust-icon { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: var(--text-muted); border: 1px solid var(--border); padding: 5px 12px; border-radius: 3px; }
+
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+    .contact-form { display: flex; flex-direction: column; gap: 14px; }
+    .form-field { background: var(--card); border: 1px solid var(--border); border-radius: 3px; padding: 14px 16px; font-size: 13px; color: var(--text-primary); font-family: 'Montserrat', sans-serif; outline: none; transition: border-color 0.2s; resize: none; }
+    .form-field:focus { border-color: var(--border-bright); }
+    .form-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; font-family: 'JetBrains Mono', monospace; }
+    .contact-info { display: flex; flex-direction: column; gap: 28px; }
+    .contact-item h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; margin-bottom: 6px; }
+    .contact-item p { font-size: 14px; color: var(--text-secondary); }
+
+    footer { border-top: 1px solid var(--border); padding: 32px 24px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;}
+    .footer-copy { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-muted); letter-spacing: 0.1em; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text-secondary); }
 
     /* Sticky Player */
     #sticky-player {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 200;
-      background: rgba(8, 8, 8, 0.97);
-      backdrop-filter: blur(24px);
-      border-top: 1px solid var(--border);
-      transform: translateY(100%);
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(8, 8, 8, 0.97); backdrop-filter: blur(24px);
+      border-top: 1px solid var(--border); transform: translateY(100%);
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
+    #sticky-player.visible { transform: translateY(0); }
+    .player-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 20px; padding: 0 24px; height: 70px; }
+    .player-play-btn { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border-bright); background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s; }
+    .player-play-btn:hover { border-color: var(--text-secondary); background: var(--card); }
+    .player-play-btn svg { width: 13px; height: 13px; fill: var(--text-primary); }
 
-    #sticky-player.visible {
-      transform: translateY(0);
-    }
+    .player-cover { width: 44px; height: 44px; border-radius: 4px; overflow: hidden; flex-shrink: 0; border: 1px solid var(--border-bright); display: none; }
+    .player-cover.visible { display: block; animation: popIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .player-cover img { width: 100%; height: 100%; object-fit: cover; }
+    @keyframes popIn { 0% { opacity: 0; transform: scale(0.8) translateX(-10px); } 100% { opacity: 1; transform: scale(1) translateX(0); } }
 
-    .player-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      padding: 0 24px;
-      height: 70px;
-    }
+    .player-track { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 0 0 160px; }
+    .player-track-name { font-size: 12px; font-weight: 700; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .player-track-genre { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; }
 
-    .player-play-btn {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 1px solid var(--border-bright);
-      background: transparent;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      transition: all 0.2s;
-    }
+    /* REAL VISUALIZER CANVAS */
+    #visualizerCanvas { height: 30px; width: 100px; flex-shrink: 0; }
 
-    .player-play-btn:hover {
-      border-color: var(--text-secondary);
-      background: var(--card);
-    }
+    .player-progress { flex: 1; display: flex; flex-direction: column; gap: 5px; }
+    .progress-bar-wrap { height: 3px; background: var(--border); border-radius: 2px; cursor: pointer; position: relative; }
+    .progress-fill { height: 100%; background: var(--text-secondary); border-radius: 2px; width: 0%; transition: width 0.1s linear; pointer-events: none; }
+    .progress-times { display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--text-muted); }
 
-    .player-play-btn svg {
-      width: 13px;
-      height: 13px;
-      fill: var(--text-primary);
-    }
+    .player-vol { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+    .player-vol svg { width: 14px; height: 14px; fill: var(--text-muted); }
+    input[type=range] { -webkit-appearance: none; appearance: none; width: 80px; height: 3px; background: var(--border-bright); border-radius: 2px; outline: none; cursor: pointer; }
+    input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 10px; height: 10px; border-radius: 50%; background: var(--text-secondary); cursor: pointer; }
 
-    /* --- Portada animada en el reproductor --- */
-    .player-cover {
-      width: 44px;
-      height: 44px;
-      border-radius: 4px;
-      overflow: hidden;
-      flex-shrink: 0;
-      border: 1px solid var(--border-bright);
-      display: none;
-    }
+    .player-close { background: none; border: none; cursor: pointer; padding: 4px; color: var(--text-muted); font-size: 18px; flex-shrink: 0; transition: color 0.2s; }
+    .player-close:hover { color: var(--text-primary); }
 
-    .player-cover.visible {
-      display: block;
-      animation: popIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
+    /* =========================================
+       REGLAS RESPONSIVAS CORREGIDAS PARA MÓVIL
+       ========================================= */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      #hamburger { display: flex; }
+      
+      .hero-title { font-size: 42px; }
+      .section { padding: 60px 20px; }
 
-    .player-cover img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    @keyframes popIn {
-      0% { opacity: 0; transform: scale(0.8) translateX(-10px); }
-      100% { opacity: 1; transform: scale(1) translateX(0); }
-    }
-
-    .player-track {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      min-width: 0;
-      flex: 0 0 160px;
-    }
-
-    .player-track-name {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--text-primary);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .player-track-genre {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 9px;
-      color: var(--text-muted);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .player-progress {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-    }
-
-    .progress-bar-wrap {
-      height: 3px;
-      background: var(--border);
-      border-radius: 2px;
-      cursor: pointer;
-      position: relative;
-    }
-
-    .progress-fill {
-      height: 100%;
-      background: var(--text-secondary);
-      border-radius: 2px;
-      width: 0%;
-      transition: width 0.1s linear;
-      pointer-events: none;
-    }
-
-    .progress-times {
-      display: flex;
-      justify-content: space-between;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 9px;
-      color: var(--text-muted);
-    }
-
-    .player-vol {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-shrink: 0;
-    }
-
-    .player-vol svg {
-      width: 14px;
-      height: 14px;
-      fill: var(--text-muted);
-    }
-
-    input[type=range] {
-      -webkit-appearance: none;
-      appearance: none; 
-      width: 80px;
-      height: 3px;
-      background: var(--border-bright);
-      border-radius: 2px;
-      outline: none;
-      cursor: pointer;
-    }
-
-    input[type=range]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--text-secondary);
-      cursor: pointer;
-    }
-
-    .player-close {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px;
-      color: var(--text-muted);
-      font-size: 18px;
-      flex-shrink: 0;
-      transition: color 0.2s;
-    }
-
-    .player-close:hover {
-      color: var(--text-primary);
-    }
-
-    @media (max-width: 600px) {
-      .player-inner {
-        gap: 12px;
+      /* Arreglo Crítico: Tabla de Beats */
+      .beat-table thead { display: none; }
+      .beat-table, .beat-table tbody { display: block; width: 100%; }
+      .beat-row { 
+        display: flex; 
+        flex-wrap: wrap; 
+        align-items: center; 
+        padding: 16px 0; 
+        gap: 12px; 
+        border-bottom: 1px solid var(--border);
       }
+      .beat-row td { display: block; padding: 0; border: none; }
+      .beat-row td:nth-child(1) { display: none; } /* Ocultar número */
+      .beat-row td:nth-child(2) { order: 1; } /* Play btn */
+      .beat-row td:nth-child(4) { order: 2; flex: 1 1 50%; min-width: 0; } /* Info: Imagen y Título */
+      .beat-row td:nth-child(3) { order: 3; } /* Fav btn */
+      .beat-row td:nth-child(5), .beat-row td:nth-child(6) { display: none; } /* Ocultar BPM y Key para compactar */
+      .beat-row td:nth-child(7) { order: 4; width: 100%; margin-top: 10px; } /* Action Button */
+      .buy-btn { width: 100%; padding: 12px; text-align: center; }
 
-      .player-track {
-        flex: 0 0 100px;
+      /* Ajuste de Cuadros (Licencias y Servicios) */
+      .license-grid, .services-grid { 
+        grid-template-columns: 1fr; 
+        gap: 12px; 
+        background: transparent; 
+        border: none; 
       }
+      .license-card, .service-card { 
+        padding: 24px 20px; /* Reducción de padding para evitar "agrandamiento" */
+        border: 1px solid var(--border); 
+        border-radius: 4px; 
+      }
+      .license-price { font-size: 32px; } /* Texto de precio más proporcionado */
+      .license-desc { margin-bottom: 20px; }
 
-      .player-vol {
-        display: none;
-      }
+      /* Contacto */
+      .contact-grid { grid-template-columns: 1fr; gap: 32px; }
 
-      input[type=range] {
-        display: none;
-      }
+      /* Reproductor pegajoso en móvil */
+      .player-inner { gap: 12px; height: 60px; }
+      .player-track { flex: 0 0 100px; }
+      .player-vol, #visualizerCanvas { display: none; }
+      .player-cover { width: 36px; height: 36px; }
     }
 
-    /* Animations */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 
@@ -1229,24 +455,17 @@
   </nav>
 
   <section class="hero" id="home">
-    
     <video autoplay muted loop playsinline class="video-bg">
       <source src="https://www.dropbox.com/scl/fi/lsyk7lue4468kyqpjxhvx/1210.mp4?rlkey=k7zh6shdd3kvi0dvjsprsamga&st=6og9fmkk&raw=1" type="video/mp4">
     </video>
-
     <div class="hero-content">
-      
       <h1 class="hero-title">SADBOIWITHSAUCE<br /><em>MIX & MASTER</em><br />BEATS</h1>
-      <p class="hero-sub">
-        Professional production with over 10 years of experience. Authentic sound, ready for market.</p>
+      <p class="hero-sub">Professional production with over 10 years of experience. Authentic sound, ready for market.</p>
       <div class="hero-actions">
-        <button class="btn-primary" onclick="document.getElementById('beats').scrollIntoView({behavior:'smooth'})">Explore
-          Catalog</button>
-        <button class="btn-ghost"
-          onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">Licenses</button>
+        <button class="btn-primary" onclick="document.getElementById('beats').scrollIntoView({behavior:'smooth'})">Explore Catalog</button>
+        <button class="btn-ghost" onclick="document.getElementById('licensing').scrollIntoView({behavior:'smooth'})">Licenses</button>
       </div>
     </div>
-
     <div class="hero-scroll">
       <div class="scroll-line"></div>
       <span>Scroll</span>
@@ -1261,14 +480,25 @@
         <div class="section-sep"></div>
       </div>
 
-      <div class="fade-in" style="overflow-x:auto;">
+      <div class="filter-container fade-in">
+        <input type="text" id="searchInput" class="search-box" placeholder="Search by name..." oninput="handleFilter()" />
+        <div class="filter-tags" id="filterTags">
+          <button class="filter-tag active" data-genre="ALL" onclick="setGenreFilter('ALL')">ALL</button>
+          <button class="filter-tag" data-genre="R&B" onclick="setGenreFilter('R&B')">R&B</button>
+          <button class="filter-tag" data-genre="AFROBEAT" onclick="setGenreFilter('AFROBEAT')">AFROBEAT</button>
+          <button class="filter-tag" data-genre="G-Funk" onclick="setGenreFilter('G-Funk')">G-FUNK</button>
+          <button class="filter-tag" id="favFilterBtn" onclick="toggleFavFilter()">FAVORITES ♥</button>
+        </div>
+      </div>
+
+      <div class="fade-in">
         <table class="beat-table">
           <thead>
             <tr>
               <th>#</th>
               <th>Play</th>
+              <th>Fav</th>
               <th>Title / Genre</th>
-              <th class="hide-mobile">Waveform</th>
               <th>BPM</th>
               <th>Key</th>
               <th style="text-align:right">Action</th>
@@ -1288,21 +518,14 @@
         <h2 class="section-title">Choose Your License</h2>
         <div class="section-sep"></div>
       </div>
-
       <div class="license-grid fade-in">
-
         <div class="license-card">
           <div class="license-tier">Basic Lease</div>
           <div class="license-price">$29<span> USD</span></div>
-          <div class="license-desc">
-Perfect for independent artists and demos</div>
+          <div class="license-desc">Perfect for independent artists and demos</div>
           <ul class="license-features">
             <li class="active">MP3+WAV Lease</li>
             <li class="active">5,000 audio streams</li>
-            <li class="active">2,500 video streams</li>
-            <li class="active">500 units distribución</li>
-            <li class="active">No radio airplay</li>
-            <li class="inactive">WAV File</li>
             <li class="inactive">Stems incluidos</li>
             <li class="inactive">Exclusividad</li>
           </ul>
@@ -1310,21 +533,14 @@ Perfect for independent artists and demos</div>
         <div class="license-card featured">
           <div class="license-tier">Premium Lease</div>
           <div class="license-price">$79<span> USD</span></div>
-          <div class="license-desc">
-For commercial releases and streaming platforms.</div>
+          <div class="license-desc">For commercial releases and streaming platforms.</div>
           <ul class="license-features">
             <li class="active">WAV + MP3 (untagged)</li>
-            <li class="active">unlimited streams</li>
-            <li class="active">
-100K units distribution</li>
-            <li class="active">2 radio stations</li>
-            <li class="active">1 music video</li>
-            <li class="active">No performance live</li>
+            <li class="active">Unlimited streams</li>
             <li class="inactive">Stems included</li>
             <li class="inactive">Exclusivity</li>
           </ul>
         </div>
-
         <div class="license-card">
           <div class="license-tier">Unlimited / Exclusive</div>
           <div class="license-price">$299<span>+</span></div>
@@ -1332,125 +548,71 @@ For commercial releases and streaming platforms.</div>
           <ul class="license-features">
             <li class="active">WAV + MP3 + Stems</li>
             <li class="active">Unlimited streams</li>
-            <li class="active">Unlimited distribution</li>
-            <li class="active">Unlimited airplay radio</li>
-            <li class="active">Live tours</li>
-            <li class="active">Beat removed from catalog</li>
-            <li class="active">Negotiable for records label</li>
             <li class="active">Exclusive contract</li>
           </ul>
-          <button class="btn-ghost" style="width:100%"
-            onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact for
-            Exclusive</button>
+          <button class="btn-ghost" style="width:100%" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact for Exclusive</button>
         </div>
-
       </div>
     </div>
   </section>
 
-  <section id="services"
-    style="background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border)">
+  <section id="testimonials" style="background:var(--bg); border-top:1px solid var(--border)">
     <div class="section">
       <div class="fade-in">
-        <div class="section-label">// 03 — Services</div>
+        <div class="section-label">// 03 — Trust</div>
+        <h2 class="section-title">Artist Feedback</h2>
+        <div class="section-sep"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#1f1f1f] border border-[#1f1f1f] rounded-md overflow-hidden fade-in">
+        <div class="bg-[#111] p-5 md:p-8 hover:bg-[#161616] transition-colors">
+          <p class="text-[#888] text-sm italic mb-6">"The G-Funk beats hit exactly like the West Coast classics. Quality is top notch and the mix is already clean before I even record."</p>
+          <div class="font-bold text-white text-xs uppercase tracking-widest">— Young Killa</div>
+        </div>
+        <div class="bg-[#111] p-5 md:p-8 hover:bg-[#161616] transition-colors">
+          <p class="text-[#888] text-sm italic mb-6">"Sadboiwithsauce is my go-to for RnB vibes. Bought an exclusive last month and the stems were perfectly organized."</p>
+          <div class="font-bold text-white text-xs uppercase tracking-widest">— Melina V</div>
+        </div>
+        <div class="bg-[#111] p-5 md:p-8 hover:bg-[#161616] transition-colors">
+          <p class="text-[#888] text-sm italic mb-6">"Fast response time, secure payment, and the masters sound crazy loud without losing dynamics. 10/10."</p>
+          <div class="font-bold text-white text-xs uppercase tracking-widest">— Prod. by Chase</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" style="background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border)">
+    <div class="section">
+      <div class="fade-in">
+        <div class="section-label">// 04 — Services</div>
         <h2 class="section-title">Production Services</h2>
         <div class="section-sep"></div>
       </div>
-
       <div class="services-grid fade-in">
-
-        <div class="service-card">
-          <div class="service-icon">🎹</div>
-          <div class="service-name">Custom Beats</div>
-          <div class="service-desc">
-Beats created from scratch for your project. Delivery in 3–5 business days. Revisions included.</div>
-          <div class="service-price">from $100 USD</div>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">🎚️</div>
-          <div class="service-name">Mixing</div>
-          <div class="service-desc">
-Professional mixing for your song. World-class balancing, EQ, dynamics, and effects.</div>
-          <div class="service-price">from $80 USD / track</div>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">💿</div>
-          <div class="service-name">Mastering</div>
-          <div class="service-desc">Mastering for Spotify, Apple Music, YouTube and physical distribution. Loud, clear and
-            ready for the world.</div>
-          <div class="service-price">from $50 USD / track</div>
-        </div>
-
+        <div class="service-card"><div class="service-icon">🎹</div><div class="service-name">Custom Beats</div><div class="service-desc">Beats created from scratch.</div><div class="service-price">from $100 USD</div></div>
+        <div class="service-card"><div class="service-icon">🎚️</div><div class="service-name">Mixing</div><div class="service-desc">Professional mixing for your song.</div><div class="service-price">from $80 USD / track</div></div>
+        <div class="service-card"><div class="service-icon">💿</div><div class="service-name">Mastering</div><div class="service-desc">Ready for Spotify & Apple Music.</div><div class="service-price">from $50 USD / track</div></div>
       </div>
-    </div>
-  </section>
-
-  <section id="trust">
-    <div class="trust-inner">
-      <div class="trust-label">Secure Checkout</div>
-      <div class="trust-divider"></div>
-      <div class="trust-icons">
-        <div class="trust-icon">PayPal</div>
-        <div class="trust-icon">Stripe</div>
-        <div class="trust-icon">Visa</div>
-        <div class="trust-icon">Mastercard</div>
-        <div class="trust-icon">AMEX</div>
-      </div>
-      <div class="trust-divider"></div>
-      <div class="trust-label" style="white-space:nowrap">256-bit SSL Encryption</div>
     </div>
   </section>
 
   <section id="contact" style="background:var(--bg)">
     <div class="section">
       <div class="fade-in">
-        <div class="section-label">// 04 — Contact
-        </div>
+        <div class="section-label">// 05 — Contact</div>
         <h2 class="section-title">Get In Touch</h2>
         <div class="section-sep"></div>
       </div>
-
       <div class="contact-grid fade-in">
         <div class="contact-form">
-          <div>
-            <div class="form-label">Name</div>
-            <input class="form-field" type="text" placeholder="Your artist name" style="width:100%" />
-          </div>
-          <div>
-            <div class="form-label">Email</div>
-            <input class="form-field" type="email" placeholder="your@email.com" style="width:100%" />
-          </div>
-          <div>
-            <div class="form-label">Subject</div>
-            <input id="subjectField" class="form-field" type="text" placeholder="Custom beat / Mixing / Collab" style="width:100%" />
-          </div>
-          <div>
-            <div class="form-label">Message</div>
-            <textarea class="form-field" rows="5" placeholder="Tell me about your project..."
-              style="width:100%"></textarea>
-          </div>
+          <div><div class="form-label">Name</div><input class="form-field" type="text" placeholder="Your artist name" style="width:100%" /></div>
+          <div><div class="form-label">Email</div><input class="form-field" type="email" placeholder="your@email.com" style="width:100%" /></div>
+          <div><div class="form-label">Subject</div><input id="subjectField" class="form-field" type="text" placeholder="Custom beat / Mixing / Collab" style="width:100%" /></div>
+          <div><div class="form-label">Message</div><textarea class="form-field" rows="5" placeholder="Tell me about your project..." style="width:100%"></textarea></div>
           <button class="btn-primary" style="align-self:flex-start">Send Message</button>
         </div>
-
         <div class="contact-info">
-          <div class="contact-item">
-            <h4>Email</h4>
-            <p>sadboiwithsauce@hotmail.com</p>
-          </div>
-          <div class="contact-item">
-            <h4>Instagram</h4>
-            <p>@sadboiwithsauce</p>
-          </div>
-          <div class="contact-item">
-            <h4>Response Time</h4>
-            <p>Typically within 24–48 hours</p>
-          </div>
-          <div class="contact-item">
-            <h4>Beatstars</h4>
-            <p>beatstars.com/sadboiwithsauce</p>
-          </div>
+          <div class="contact-item"><h4>Email</h4><p>sadboiwithsauce@hotmail.com</p></div>
+          <div class="contact-item"><h4>Instagram</h4><p>@sadboiwithsauce</p></div>
         </div>
       </div>
     </div>
@@ -1458,21 +620,15 @@ Professional mixing for your song. World-class balancing, EQ, dynamics, and effe
 
   <footer>
     <div class="footer-inner">
-      <div class="footer-copy">© 2025 SADBOIWITHSAUCE. All rights reserved.</div>
-      <div class="footer-links">
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-        <a href="#">Licensing FAQ</a>
-      </div>
+      <div class="footer-copy">© 2026 SADBOIWITHSAUCE. All rights reserved.</div>
+      <div class="footer-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Licensing FAQ</a></div>
     </div>
   </footer>
 
   <div id="sticky-player">
     <div class="player-inner">
       <button class="player-play-btn" id="playerPlayBtn" onclick="playerToggle()">
-        <svg id="playerIcon" viewBox="0 0 24 24">
-          <polygon points="5,3 19,12 5,21" />
-        </svg>
+        <svg id="playerIcon" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21" /></svg>
       </button>
       
       <div class="player-cover" id="playerCoverContainer">
@@ -1483,6 +639,9 @@ Professional mixing for your song. World-class balancing, EQ, dynamics, and effe
         <div class="player-track-name" id="playerName">—</div>
         <div class="player-track-genre" id="playerGenre">Select a beat</div>
       </div>
+
+      <canvas id="visualizerCanvas"></canvas>
+
       <div class="player-progress">
         <div class="progress-bar-wrap" id="progressWrap" onclick="seekTo(event)">
           <div class="progress-fill" id="progressFill"></div>
@@ -1493,9 +652,7 @@ Professional mixing for your song. World-class balancing, EQ, dynamics, and effe
         </div>
       </div>
       <div class="player-vol">
-        <svg viewBox="0 0 24 24">
-          <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" />
-        </svg>
+        <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" /></svg>
         <input type="range" id="volSlider" min="0" max="1" step="0.01" value="0.8" oninput="setVolume(this.value)" />
       </div>
       <button class="player-close" onclick="closePlayer()">×</button>
@@ -1504,21 +661,18 @@ Professional mixing for your song. World-class balancing, EQ, dynamics, and effe
 
   <audio id="audioEl" preload="none"></audio>
 
-  <div id="buyModal"
-    class="fixed inset-0 z-[9999] hidden flex items-center justify-center bg-black/90 backdrop-blur-sm p-4">
+  <div id="buyModal" class="fixed inset-0 z-[9999] hidden flex items-center justify-center bg-black/90 backdrop-blur-sm p-4">
     <div class="bg-[#0d0d0d] border border-[#1f1f1f] w-full max-w-md p-8 rounded-2xl shadow-2xl">
       <div class="flex justify-between items-start mb-6">
         <div>
           <h3 class="text-[10px] font-mono tracking-[0.3em] text-[#444] uppercase mb-1">// CHECKOUT</h3>
-          <h2 id="modalBeatName" class="text-2xl font-black text-[#f0f0f0] uppercase italic tracking-tighter">BEAT NAME
-          </h2>
+          <h2 id="modalBeatName" class="text-2xl font-black text-[#f0f0f0] uppercase italic tracking-tighter">BEAT NAME</h2>
         </div>
         <button onclick="closeModal()" class="text-[#444] hover:text-white transition-colors text-2xl">&times;</button>
       </div>
 
       <div class="space-y-3">
-        <button onclick="goToStripe('BASIC')"
-          class="w-full flex justify-between items-center p-5 bg-[#111] border border-[#1f1f1f] hover:border-[#444] transition-all rounded-xl group">
+        <button onclick="goToStripe('BASIC')" class="w-full flex justify-between items-center p-5 bg-[#111] border border-[#1f1f1f] hover:border-[#444] transition-all rounded-xl group">
           <div class="text-left">
             <div class="font-bold text-[#f0f0f0] group-hover:text-white">BASIC LEASE</div>
             <div class="text-[10px] text-[#444]">MP3 + WAV</div>
@@ -1526,8 +680,7 @@ Professional mixing for your song. World-class balancing, EQ, dynamics, and effe
           <span class="font-mono text-[#888] group-hover:text-white">$29.99</span>
         </button>
 
-        <button onclick="goToStripe('PREMIUM')"
-          class="w-full flex justify-between items-center p-5 bg-[#111] border border-[#1f1f1f] hover:border-[#444] transition-all rounded-xl group">
+        <button onclick="goToStripe('PREMIUM')" class="w-full flex justify-between items-center p-5 bg-[#111] border border-[#1f1f1f] hover:border-[#444] transition-all rounded-xl group">
           <div class="text-left">
             <div class="font-bold text-[#f0f0f0] group-hover:text-white">PREMIUM LEASE</div>
             <div class="text-[10px] text-[#444]">TRACKOUTS / STEMS</div>
@@ -1535,8 +688,7 @@ Professional mixing for your song. World-class balancing, EQ, dynamics, and effe
           <span class="font-mono text-[#888] group-hover:text-white">$79.99</span>
         </button>
 
-        <button onclick="goToContactForm()"
-          class="w-full flex justify-between items-center p-5 bg-[#f0f0f0] hover:bg-white transition-all rounded-xl group">
+        <button onclick="goToContactForm()" class="w-full flex justify-between items-center p-5 bg-[#f0f0f0] hover:bg-white transition-all rounded-xl group">
           <div class="text-left">
             <div class="font-bold text-black italic">UNLIMITED / EXCLUSIVE</div>
             <div class="text-[10px] text-black/60">FULL RIGHTS</div>
@@ -1549,297 +701,275 @@ Professional mixing for your song. World-class balancing, EQ, dynamics, and effe
     </div>
   </div>
 
-  <a href="https://www.instagram.com/sadboiwithsauce/" target="_blank" 
-     class="fixed bottom-24 left-6 z-[99] bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] p-3 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 group">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-    </svg>
-    <span class="absolute left-14 bg-black/80 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none uppercase tracking-widest font-mono">
-      Follow @Sadboiwithsauce
-    </span>
-  </a>
-
   <script>
     const beats = [
       { 
-        id: 0, 
-        name: "2000s ERA", 
-        genre: "R&B", 
-        bpm: 100, 
-        key: "G Major", 
+        id: 0, name: "2000s ERA", genre: "R&B", bpm: 100, key: "G Major", 
         image: "https://www.dropbox.com/scl/fi/zkncj13ic8l9arx06tn5l/71LEOKRqYkL._AC_UF1000-1000_QL80_.jpg?rlkey=11a18b5xm78wgszxpbq05aoin&st=di82l9m6&raw=1",
-        src: "https://www.dropbox.com/scl/fi/t9z54mgj1kp1ffonrenf8/R-B-2000s-ERA-G-major-100BPM_.wav?rlkey=pm1hinu593xkwedr46623q9h9&st=97y19fpu&raw=1",
-        links: {
-          basic: "https://buy.stripe.com/7sY7sLcwl1SW5Ej2Mde7m0c",
-          premium: "https://buy.stripe.com/eVq00j2VL1SWd6LbiJe7m0d",
-        }
+        src: "https://www.dropbox.com/scl/fi/t9z54mgj1kp1ffonrenf8/R-B-2000s-ERA-G-major-100BPM_.wav?rlkey=pm1hinu593xkwedr46623q9h9&st=rc4g2g4e&raw=1",
+        links: { basic: "https://buy.stripe.com/7sY7sLcwl1SW5Ej2Mde7m0c", premium: "https://buy.stripe.com/eVq00j2VL1SWd6LbiJe7m0d" }
       },
       { 
-        id: 1, 
-        name: "INoLVIDABLE", 
-        genre: "AFROBEAT", 
-        bpm: 108,
-        key: "D minor",
+        id: 1, name: "INoLVIDABLE", genre: "AFROBEAT", bpm: 108, key: "D minor",
         image: "https://www.dropbox.com/scl/fi/k5ry741gb31p9zp7w6aqy/bad-bunny-weltita-beach.jpg?rlkey=oshqudtzm23kan9n9bnynmxe5&st=apb9bcwe&raw=1",
-        src: "https://www.dropbox.com/scl/fi/e1sskms92450p6oc5rtae/AFROBEAT-INoLVIDABLE.mp3?rlkey=q80ohpit4xchdz902tnfkrrw2&st=dc3rju54&raw=1",
-        links: {
-          basic: "https://buy.stripe.com/14A4gz7c1cxA2s70E5e7m0f",
-          premium: "https://buy.stripe.com/4gM7sL9k98hk8Qv86xe7m0g",
-        
-        }
-        
+        src: "https://www.dropbox.com/scl/fi/e1sskms92450p6oc5rtae/AFROBEAT-INoLVIDABLE.mp3?rlkey=q80ohpit4xchdz902tnfkrrw2&st=gh8f5qvj&raw=1",
+        links: { basic: "https://buy.stripe.com/14A4gz7c1cxA2s70E5e7m0f", premium: "https://buy.stripe.com/4gM7sL9k98hk8Qv86xe7m0g" }
       },
       { 
-      id: 2, 
-      name: "TITULO DEL BEAT", 
-      genre: "G-Funk", 
-      bpm: 95, 
-      key: "F minor", 
-      image: "LINK_DE_PORTADA",
-      src: "LINK_DE_AUDIO",
-      links: {
-        basic: "LINK_STRIPE_1",
-        premium: "LINK_STRIPE_2"
-      }
-    },
+        id: 2, name: "WESTSIDE BREEZE", genre: "G-Funk", bpm: 95, key: "F minor", 
+        image: "https://via.placeholder.com/300/111/444?text=GFUNK",
+        src: "", links: { basic: "", premium: "" }
+      },
     ];
+
+    let favBeats = JSON.parse(localStorage.getItem('sadboi_favs')) || [];
+    let currentGenre = 'ALL';
+    let currentSearch = '';
+    let showFavsOnly = false;
 
     const audio = document.getElementById('audioEl');
     const playerEl = document.getElementById('sticky-player');
     const playerIcon = document.getElementById('playerIcon');
     const progressFill = document.getElementById('progressFill');
-    const timeElapsed = document.getElementById('timeElapsed');
-    const timeDuration = document.getElementById('timeDuration');
     const bgImage = document.getElementById('bg-image');
-    
-    const playerCoverContainer = document.getElementById('playerCoverContainer');
     const playerImage = document.getElementById('playerImage');
+    const playerCoverContainer = document.getElementById('playerCoverContainer');
 
     const PLAY_SVG = '<polygon points="5,3 19,12 5,21"/>';
     const PAUSE_SVG = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+    const HEART_SVG = '<svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>';
 
     let currentBeat = null;
-    let currentModalIdx = 0;
     let isPlaying = false;
+
+    let audioCtx, analyser, dataArray, canvasCtx;
+    const visualizerCanvas = document.getElementById('visualizerCanvas');
+
+    function initAudioVisualizer() {
+      console.warn("Visualizador desactivado temporalmente para streaming directo.");
+      return; 
+    }
+
+    function drawVisualizer() {
+      requestAnimationFrame(drawVisualizer);
+      if(!isPlaying) return; 
+      
+      analyser.getByteFrequencyData(dataArray);
+      canvasCtx.clearRect(0, 0, visualizerCanvas.width, visualizerCanvas.height);
+      
+      const barWidth = (visualizerCanvas.width / dataArray.length) * 1.5;
+      let x = 0;
+      
+      for(let i = 0; i < dataArray.length; i++) {
+        const barHeight = (dataArray[i] / 255) * visualizerCanvas.height;
+        canvasCtx.fillStyle = '#888888';
+        canvasCtx.fillRect(x, visualizerCanvas.height - barHeight, barWidth, barHeight);
+        x += barWidth + 1;
+      }
+    }
+
+    function handleFilter() {
+      currentSearch = document.getElementById('searchInput').value.toLowerCase();
+      renderBeats();
+    }
+
+    function setGenreFilter(genre) {
+      currentGenre = genre;
+      showFavsOnly = false;
+      document.getElementById('favFilterBtn').classList.remove('active');
+      document.querySelectorAll('.filter-tag[data-genre]').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.genre === genre);
+      });
+      renderBeats();
+    }
+
+    function toggleFavFilter() {
+      showFavsOnly = !showFavsOnly;
+      document.getElementById('favFilterBtn').classList.toggle('active', showFavsOnly);
+      if(showFavsOnly) {
+        document.querySelectorAll('.filter-tag[data-genre]').forEach(b => b.classList.remove('active'));
+      } else {
+        setGenreFilter('ALL');
+      }
+      renderBeats();
+    }
+
+    function toggleFav(e, id) {
+      e.stopPropagation();
+      if(favBeats.includes(id)) {
+        favBeats = favBeats.filter(f => f !== id);
+      } else {
+        favBeats.push(id);
+      }
+      localStorage.setItem('sadboi_favs', JSON.stringify(favBeats));
+      renderBeats();
+    }
 
     function renderBeats() {
       const container = document.getElementById('beatListContainer');
-      if (!container) return;
       container.innerHTML = '';
 
-      beats.forEach((beat, index) => {
-        const tr = document.createElement('tr');
-        tr.className = 'beat-row';
-        tr.onclick = () => selectBeat(index);
+      let filtered = beats.filter(b => {
+        const matchesSearch = b.name.toLowerCase().includes(currentSearch);
+        const matchesGenre = currentGenre === 'ALL' || b.genre === currentGenre;
+        const matchesFav = !showFavsOnly || favBeats.includes(b.id);
+        return matchesSearch && matchesGenre && matchesFav;
+      });
 
-        const heights = [8, 14, 20, 10, 18, 24, 12, 16, 22, 9, 17, 21, 11, 15, 19, 8, 13, 23, 10, 16];
-        let waveformHTML = '';
-        heights.forEach(h => {
-          waveformHTML += `<div class="waveform-bar" style="height:${h}px"></div>`;
-        });
+      if(filtered.length === 0) {
+        container.innerHTML = `<tr><td colspan="7" class="text-center py-8 text-[#444] font-mono text-xs tracking-widest">NO BEATS FOUND</td></tr>`;
+        return;
+      }
+
+      filtered.forEach((beat, index) => {
+        const isFav = favBeats.includes(beat.id);
+        const tr = document.createElement('tr');
+        tr.className = `beat-row ${currentBeat === beat.id ? 'active' : ''}`;
+        tr.onclick = () => selectBeat(beat.id);
 
         tr.innerHTML = `
-          <td><div class="beat-num">${(index + 1).toString().padStart(2, '0')}</div></td>
+          <td><div class="beat-num">${(beat.id + 1).toString().padStart(2, '0')}</div></td>
           <td>
-            <button class="play-btn" id="playBtn${index}" onclick="event.stopPropagation(); togglePlay(${index})">
-              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+            <button class="play-btn ${currentBeat === beat.id && isPlaying ? 'playing' : ''}" id="playBtn${beat.id}" onclick="event.stopPropagation(); togglePlay(${beat.id})">
+              <svg viewBox="0 0 24 24">${currentBeat === beat.id && isPlaying ? PAUSE_SVG : PLAY_SVG}</svg>
+            </button>
+          </td>
+          <td>
+            <button class="fav-btn ${isFav ? 'active' : ''}" onclick="toggleFav(event, ${beat.id})">
+              ${HEART_SVG}
             </button>
           </td>
           <td>
             <div style="display:flex; align-items:center; gap:16px;">
-              <img src="${beat.image}" style="width:44px; height:44px; border-radius:4px; object-fit:cover; border:1px solid #1f1f1f;">
+              <img src="${beat.image}" loading="lazy" style="width:44px; height:44px; border-radius:4px; object-fit:cover; border:1px solid #1f1f1f;">
               <div>
                 <div class="beat-name">${beat.name}</div>
                 <div class="beat-genre">${beat.genre}</div>
               </div>
             </div>
           </td>
-          <td class="hide-mobile">
-            <div class="waveform" id="wf${index}">
-              ${waveformHTML}
-            </div>
-          </td>
-          <td>
-            <div class="beat-meta">${beat.bpm}<span>BPM</span></div>
-          </td>
-          <td>
-            <div class="beat-meta">${beat.key}<span>KEY</span></div>
-          </td>
+          <td><div class="beat-meta">${beat.bpm}<span>BPM</span></div></td>
+          <td><div class="beat-meta">${beat.key}<span>KEY</span></div></td>
           <td style="text-align:right">
-            <button class="buy-btn" onclick="event.stopPropagation(); openBuyModal(${index})">BUY / LEASE</button>
+            <button class="buy-btn" onclick="event.stopPropagation(); openBuyModal(${beat.id})">BUY / LEASE</button>
           </td>
         `;
         container.appendChild(tr);
       });
     }
 
-    function selectBeat(idx) {
-      const beat = beats[idx];
-      if (currentBeat !== idx) {
-        currentBeat = idx;
+    function selectBeat(id) {
+      const beat = beats.find(b => b.id === id);
+      if(!beat || !beat.src) { alert("Audio not available for this beat yet."); return;}
+      
+      initAudioVisualizer();
+
+      if (currentBeat !== id) {
+        currentBeat = id;
         audio.src = beat.src;
         audio.load();
         
         document.getElementById('playerName').textContent = beat.name;
-        document.getElementById('playerGenre').textContent = beat.genre + ' · ' + beat.bpm + ' BPM · ' + beat.key;
+        document.getElementById('playerGenre').textContent = beat.genre + ' · ' + beat.bpm + ' BPM';
         
-        if(bgImage) {
-          bgImage.src = beat.image;
-          bgImage.style.opacity = '0.3';
-        }
-
+        if(bgImage) { bgImage.src = beat.image; bgImage.style.opacity = '0.3'; }
         playerImage.src = beat.image;
         playerCoverContainer.classList.add('visible');
-
         playerEl.classList.add('visible');
-        resetAllRows();
-        document.querySelectorAll('.beat-row')[idx].classList.add('active');
       }
-      playAudio(idx);
+      playAudio(id);
     }
 
-    function playAudio(idx) {
-      const btn = document.getElementById('playBtn' + idx);
+    function playAudio(id) {
+      renderBeats(); 
       const playAttempt = audio.play();
       if (playAttempt !== undefined) {
         playAttempt.then(() => {
           isPlaying = true;
-          btn && btn.classList.add('playing');
-          btn && (btn.querySelector('svg').innerHTML = PAUSE_SVG);
           playerIcon.innerHTML = PAUSE_SVG;
+          renderBeats();
+          if(audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
         }).catch(() => {
           isPlaying = false;
-          btn && btn.classList.remove('playing');
           playerIcon.innerHTML = PLAY_SVG;
+          renderBeats();
         });
       }
     }
 
-    function togglePlay(idx) {
-      if (currentBeat === idx && isPlaying) {
+    function togglePlay(id) {
+      if (currentBeat === id && isPlaying) {
         audio.pause();
         isPlaying = false;
-        document.getElementById('playBtn' + idx).classList.remove('playing');
-        document.getElementById('playBtn' + idx).querySelector('svg').innerHTML = PLAY_SVG;
         playerIcon.innerHTML = PLAY_SVG;
+        renderBeats();
       } else {
-        selectBeat(idx);
+        selectBeat(id);
       }
     }
 
     function playerToggle() {
       if (currentBeat === null) return;
-      if (isPlaying) {
-        audio.pause();
-        isPlaying = false;
-        playerIcon.innerHTML = PLAY_SVG;
-        const btn = document.getElementById('playBtn' + currentBeat);
-        if (btn) { btn.classList.remove('playing'); btn.querySelector('svg').innerHTML = PLAY_SVG; }
-      } else {
-        playAudio(currentBeat);
-      }
-    }
-
-    function resetAllRows() {
-      document.querySelectorAll('.beat-row').forEach(r => r.classList.remove('active'));
-      document.querySelectorAll('.play-btn').forEach(btn => {
-        btn.classList.remove('playing');
-        btn.querySelector('svg').innerHTML = PLAY_SVG;
-      });
+      togglePlay(currentBeat);
     }
 
     function closePlayer() {
       audio.pause();
       isPlaying = false;
       currentBeat = null;
-      resetAllRows();
       playerEl.classList.remove('visible');
-      
       playerCoverContainer.classList.remove('visible');
-      
       progressFill.style.width = '0%';
-    }
-
-    function setVolume(v) { audio.volume = parseFloat(v); }
-
-    function seekTo(e) {
-      if (!audio.duration) return;
-      const rect = document.getElementById('progressWrap').getBoundingClientRect();
-      const pct = (e.clientX - rect.left) / rect.width;
-      audio.currentTime = pct * audio.duration;
-    }
-
-    function formatTime(s) {
-      if (isNaN(s)) return '0:00';
-      const m = Math.floor(s / 60);
-      const ss = Math.floor(s % 60);
-      return m + ':' + (ss < 10 ? '0' : '') + ss;
+      renderBeats();
     }
 
     audio.addEventListener('timeupdate', () => {
       if (!audio.duration) return;
-      const pct = (audio.currentTime / audio.duration) * 100;
-      progressFill.style.width = pct + '%';
-      timeElapsed.textContent = formatTime(audio.currentTime);
-      timeDuration.textContent = formatTime(audio.duration);
+      progressFill.style.width = ((audio.currentTime / audio.duration) * 100) + '%';
+      document.getElementById('timeElapsed').textContent = formatTime(audio.currentTime);
+      document.getElementById('timeDuration').textContent = formatTime(audio.duration);
     });
-
-    audio.addEventListener('ended', () => {
-      isPlaying = false;
-      playerIcon.innerHTML = PLAY_SVG;
-      if (currentBeat !== null) {
-        const btn = document.getElementById('playBtn' + currentBeat);
-        if (btn) { btn.classList.remove('playing'); btn.querySelector('svg').innerHTML = PLAY_SVG; }
-      }
-      progressFill.style.width = '0%';
-    });
-
-    audio.volume = 0.8;
-
-    function openBuyModal(idx) {
-      currentModalIdx = idx;
-      const beat = beats[idx];
-      const modal = document.getElementById('buyModal');
-      document.getElementById('modalBeatName').innerText = beat.name;
-      modal.classList.remove('hidden');
+    audio.addEventListener('ended', () => { isPlaying = false; playerIcon.innerHTML = PLAY_SVG; renderBeats(); progressFill.style.width = '0%'; });
+    
+    function setVolume(v) { audio.volume = parseFloat(v); }
+    function seekTo(e) { if (!audio.duration) return; const rect = document.getElementById('progressWrap').getBoundingClientRect(); audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration; }
+    function formatTime(s) { if (isNaN(s)) return '0:00'; const m = Math.floor(s / 60); const ss = Math.floor(s % 60); return m + ':' + (ss < 10 ? '0' : '') + ss; }
+    
+    let currentModalId = 0;
+    
+    function openBuyModal(id) { 
+      currentModalId = id; 
+      document.getElementById('modalBeatName').innerText = beats.find(b=>b.id==id).name; 
+      document.getElementById('buyModal').classList.remove('hidden'); 
       document.body.style.overflow = 'hidden'; 
     }
-
-    function closeModal() {
-      const modal = document.getElementById('buyModal');
-      modal.classList.add('hidden');
+    
+    function closeModal() { 
+      document.getElementById('buyModal').classList.add('hidden'); 
       document.body.style.overflow = 'auto'; 
     }
-
+    
     function goToStripe(tier) {
-      const beat = beats[currentModalIdx];
-      let url = "";
-      if (tier === 'BASIC') url = beat.links.basic;
-      if (tier === 'PREMIUM') url = beat.links.premium;
-      if (url) window.open(url, '_blank');
+      const b = beats.find(x=>x.id==currentModalId);
+      if(tier === 'BASIC' && b.links.basic) window.open(b.links.basic, '_blank');
+      if(tier === 'PREMIUM' && b.links.premium) window.open(b.links.premium, '_blank');
     }
 
     function goToContactForm() {
-      const beat = beats[currentModalIdx];
+      const beat = beats.find(b=>b.id==currentModalId);
       closeModal();
       document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
       const subjectInput = document.getElementById('subjectField');
-      if (subjectInput) {
+      if (subjectInput && beat) {
         subjectInput.value = `Exclusive Rights Inquiry: ${beat.name}`;
       }
     }
 
     function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
+    const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
     window.addEventListener('DOMContentLoaded', renderBeats);
-
   </script>
 </body>
 </html>
