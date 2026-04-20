@@ -604,13 +604,27 @@
         <div class="section-sep"></div>
       </div>
       <div class="contact-grid fade-in">
-        <div class="contact-form">
-          <div><div class="form-label">Name</div><input class="form-field" type="text" placeholder="Your artist name" style="width:100%" /></div>
-          <div><div class="form-label">Email</div><input class="form-field" type="email" placeholder="your@email.com" style="width:100%" /></div>
-          <div><div class="form-label">Subject</div><input id="subjectField" class="form-field" type="text" placeholder="Custom beat / Mixing / Collab" style="width:100%" /></div>
-          <div><div class="form-label">Message</div><textarea class="form-field" rows="5" placeholder="Tell me about your project..." style="width:100%"></textarea></div>
-          <button class="btn-primary" style="align-self:flex-start">Send Message</button>
-        </div>
+        <form class="contact-form" action="https://formsubmit.co/aron.103@hotmail.com" method="POST">
+          <input type="hidden" name="_captcha" value="false">
+          
+          <div>
+            <div class="form-label">Name</div>
+            <input class="form-field" type="text" name="name" placeholder="Your artist name" style="width:100%" required />
+          </div>
+          <div>
+            <div class="form-label">Email</div>
+            <input class="form-field" type="email" name="email" placeholder="your@email.com" style="width:100%" required />
+          </div>
+          <div>
+            <div class="form-label">Subject</div>
+            <input id="subjectField" class="form-field" type="text" name="subject" placeholder="Custom beat / Mixing / Collab" style="width:100%" required />
+          </div>
+          <div>
+            <div class="form-label">Message</div>
+            <textarea class="form-field" name="message" rows="5" placeholder="Tell me about your project..." style="width:100%" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="align-self:flex-start">Send Message</button>
+        </form>
         <div class="contact-info">
           <div class="contact-item"><h4>Email</h4><p>sadboiwithsauce@hotmail.com</p></div>
           <div class="contact-item"><h4>Instagram</h4><p>@sadboiwithsauce</p></div>
