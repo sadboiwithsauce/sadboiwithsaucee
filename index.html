@@ -486,6 +486,7 @@
           <button class="filter-tag active" data-genre="ALL" onclick="setGenreFilter('ALL')">ALL</button>
           <button class="filter-tag" data-genre="R&B" onclick="setGenreFilter('R&B')">R&B</button>
           <button class="filter-tag" data-genre="AFROBEAT" onclick="setGenreFilter('AFROBEAT')">AFROBEAT</button>
+          <button class="filter-tag" data-genre="NEW JACK SWING" onclick="setGenreFilter('NEW JACK SWING')">NEW JACK SWING</button>
           <button class="filter-tag" data-genre="G-Funk" onclick="setGenreFilter('G-Funk')">G-FUNK</button>
           <button class="filter-tag" id="favFilterBtn" onclick="toggleFavFilter()">FAVORITES ♥</button>
         </div>
@@ -716,10 +717,27 @@
         links: { basic: "https://buy.stripe.com/14A4gz7c1cxA2s70E5e7m0f", premium: "https://buy.stripe.com/4gM7sL9k98hk8Qv86xe7m0g" }
       },
       { 
-        id: 2, name: "WESTSIDE BREEZE", genre: "G-Funk", bpm: 95, key: "F minor", 
-        image: "https://via.placeholder.com/300/111/444?text=GFUNK",
-        src: "", links: { basic: "", premium: "" }
+        id: 2, name: "DREAM", genre: "NEW JACK SWING", bpm: 112, key: "C minor", 
+        image: "https://www.dropbox.com/scl/fi/xfv3cl0hd3xzft6rugna3/bd556bd2a2707cf539e013d952979ec8.jpg?rlkey=7op7ayqnbf2rkve3pbp3c1u7q&st=m4ptyr32&raw=1",
+        src: "https://www.dropbox.com/scl/fi/w6glml2u10b24qk36bj1w/DREAM-112-BPM-C-MINOR.mp3?rlkey=hqt5mi75z0cplllz1huipb6cw&st=vnjairyd&raw=1",
+         links: { basic: "https://buy.stripe.com/aFa8wP7c1414feT5Ype7m0i", premium: "https://buy.stripe.com/cNi8wP0NDdBE7MrgD3e7m0j" }
       },
+
+        { 
+          id: 3, name: "MIDNIGHT CITY", genre: "R&B", bpm: 85, key: "A minor", 
+          image: "https://via.placeholder.com/300/111/444?text=RNB",
+          src: "", links: { basic: "", premium: "" }
+        },
+        { 
+          id: 4, name: "TROPICAL VIBES", genre: "AFROBEAT", bpm: 110, key: "C Major", 
+          image: "https://via.placeholder.com/300/111/444?text=AFROBEAT",
+          src: "", links: { basic: "", premium: "" }
+        },
+        { 
+          id: 5, name: "SMOOTH GROOVE", genre: "G-Funk", bpm: 90, key: "E minor", 
+          image: "https://via.placeholder.com/300/111/444?text=GFUNK",
+          src: "", links: { basic: "", premium: "" }
+        },
     ];
 
     let favBeats = JSON.parse(localStorage.getItem('sadboi_favs')) || [];
