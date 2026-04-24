@@ -366,16 +366,14 @@
 
     .player-close { background: none; border: none; cursor: pointer; padding: 4px; color: var(--text-muted); font-size: 18px; flex-shrink: 0; transition: color 0.2s; }
     .player-close:hover { color: var(--text-primary); }
-
-    /* =========================================
-       REGLAS RESPONSIVAS CORREGIDAS PARA MÓVIL
-       ========================================= */
     @media (max-width: 768px) {
       .nav-links { display: none; }
       #hamburger { display: flex; }
-      
-      .hero-title { font-size: 42px; }
-      .section { padding: 60px 20px; }
+      .hero-title { 
+        font-size: 32px;    
+        line-height: 1.1; 
+        word-wrap: break-word;
+      }
 
       /* Arreglo Crítico: Tabla de Beats */
       .beat-table thead { display: none; }
@@ -488,7 +486,9 @@
           <button class="filter-tag" data-genre="R&B" onclick="setGenreFilter('R&B')">R&B</button>
           <button class="filter-tag" data-genre="AFROBEAT" onclick="setGenreFilter('AFROBEAT')">AFROBEAT</button>
           <button class="filter-tag" data-genre="NEW JACK SWING" onclick="setGenreFilter('NEW JACK SWING')">NEW JACK SWING</button>
-          <button class="filter-tag" data-genre="G-Funk" onclick="setGenreFilter('G-Funk')">G-FUNK</button>
+          <button class="filter-tag" data-genre="G-FUNK" onclick="setGenreFilter('G-FUNK')">G-FUNK</button>
+          <button class="filter-tag" data-genre="HOUSE" onclick="setGenreFilter('HOUSE')">HOUSE</button>
+          <button class="filter-tag" data-genre="PLUGGNB" onclick="setGenreFilter('PLUGGNB')">PLUGGNB</button>
           <button class="filter-tag" id="favFilterBtn" onclick="toggleFavFilter()">FAVORITES ♥</button>
         </div>
       </div>
@@ -528,8 +528,8 @@
           <ul class="license-features">
             <li class="active">MP3+WAV Lease</li>
             <li class="active">5,000 audio streams</li>
-            <li class="inactive">Stems incluidos</li>
-            <li class="inactive">Exclusividad</li>
+            <li class="inactive">Stems included</li>
+            <li class="inactive">Exclusivity</li>
           </ul>
         </div>
         <div class="license-card featured">
@@ -572,7 +572,7 @@
         </div>
         <div class="bg-[#111] p-5 md:p-8 hover:bg-[#161616] transition-colors">
           <p class="text-[#888] text-sm italic mb-6">"Sadboiwithsauce is my go-to for RnB vibes. Bought an exclusive last month and the stems were perfectly organized."</p>
-          <div class="font-bold text-white text-xs uppercase tracking-widest">— Melina V</div>
+          <div class="font-bold text-white text-xs uppercase tracking-widest">— Sharon V</div>
         </div>
         <div class="bg-[#111] p-5 md:p-8 hover:bg-[#161616] transition-colors">
           <p class="text-[#888] text-sm italic mb-6">"Fast response time, secure payment, and the masters sound crazy loud without losing dynamics. 10/10."</p>
@@ -726,33 +726,78 @@
         links: { basic: "https://buy.stripe.com/7sY7sLcwl1SW5Ej2Mde7m0c", premium: "https://buy.stripe.com/eVq00j2VL1SWd6LbiJe7m0d" }
       },
       { 
-        id: 1, name: "INoLVIDABLE", genre: "AFROBEAT", bpm: 108, key: "D minor",
+        id: 1, name: "INoLVIDABLE", genre: "AFROBEAT", bpm: 108, key: "D Minor",
         image: "https://www.dropbox.com/scl/fi/k5ry741gb31p9zp7w6aqy/bad-bunny-weltita-beach.jpg?rlkey=oshqudtzm23kan9n9bnynmxe5&st=apb9bcwe&raw=1",
         src: "https://www.dropbox.com/scl/fi/e1sskms92450p6oc5rtae/AFROBEAT-INoLVIDABLE.mp3?rlkey=q80ohpit4xchdz902tnfkrrw2&st=gh8f5qvj&raw=1",
         links: { basic: "https://buy.stripe.com/14A4gz7c1cxA2s70E5e7m0f", premium: "https://buy.stripe.com/4gM7sL9k98hk8Qv86xe7m0g" }
       },
       { 
-        id: 2, name: "DREAM", genre: "NEW JACK SWING", bpm: 112, key: "C minor", 
+        id: 2, name: "DREAM", genre: "NEW JACK SWING", bpm: 112, key: "C Minor", 
         image: "https://www.dropbox.com/scl/fi/xfv3cl0hd3xzft6rugna3/bd556bd2a2707cf539e013d952979ec8.jpg?rlkey=7op7ayqnbf2rkve3pbp3c1u7q&st=m4ptyr32&raw=1",
         src: "https://www.dropbox.com/scl/fi/w6glml2u10b24qk36bj1w/DREAM-112-BPM-C-MINOR.mp3?rlkey=hqt5mi75z0cplllz1huipb6cw&st=vnjairyd&raw=1",
          links: { basic: "https://buy.stripe.com/aFa8wP7c1414feT5Ype7m0i", premium: "https://buy.stripe.com/cNi8wP0NDdBE7MrgD3e7m0j" }
       },
 
         { 
-          id: 3, name: "MIDNIGHT CITY", genre: "R&B", bpm: 85, key: "A minor", 
-          image: "https://via.placeholder.com/300/111/444?text=RNB",
-          src: "", links: { basic: "", premium: "" }
+          id: 3, name: "BOYZZ DONT CRY", genre: "NEW JACK SWING", bpm: 106, key: "G Minor", 
+          image: "https://www.dropbox.com/scl/fi/ytbu6pmtsf8dbrhwruyuo/A-700458-1429382020-1418.jpg?rlkey=c0hbj7lvn29l3sf0z0mwvdqx2&st=6dc3q95v&raw=1",
+          src: "https://www.dropbox.com/scl/fi/z483u845yqemdv519bbro/BOYZZ-DONT-CRY-106-BPM-G-minor.mp3?rlkey=5itin2iwncmv0yghidd0nz40x&st=pdajlxcf&raw=1",
+           links: { basic: "https://buy.stripe.com/aFaeVd7c18hkc2H1I9e7m0k", premium: "https://buy.stripe.com/7sYdR953T4140jZgD3e7m0l" }
         },
         { 
-          id: 4, name: "TROPICAL VIBES", genre: "AFROBEAT", bpm: 110, key: "C Major", 
-          image: "https://via.placeholder.com/300/111/444?text=AFROBEAT",
-          src: "", links: { basic: "", premium: "" }
+          id: 4, name: "SMOOTH GROOVE", genre: "NEW JACK SWING", bpm: 104, key: "Eb Minor", 
+          image: "https://www.dropbox.com/scl/fi/vh299oy4mweiqkw535p49/TCD41.jpg?rlkey=pq5rl4ugpnbkmt93n6aqalj3i&st=d4uz9vjm&raw=1",
+          src: "https://www.dropbox.com/scl/fi/l113cumow7svr8ny1ymw5/SMOOTH-GROOVE-104-BPM.mp3?rlkey=v2umcqtyqexeowzpfr79t8ewu&st=cy2010yk&raw=1",
+           links: { basic: "https://buy.stripe.com/4gM8wP67X2X0c2H0E5e7m0m", premium: "https://buy.stripe.com/fZueVdbshbtw1o32Mde7m0n" }
         },
         { 
-          id: 5, name: "SMOOTH GROOVE", genre: "G-Funk", bpm: 90, key: "E minor", 
-          image: "https://via.placeholder.com/300/111/444?text=GFUNK",
-          src: "", links: { basic: "", premium: "" }
+          id: 5, name: "GOLD", genre: "NEW JACK SWING", bpm: 102, key: "D Minor", 
+          image: "https://www.dropbox.com/scl/fi/qi91nca0mswgncvi2fra0/maxresdefault.jpg?rlkey=98wxrt82ph9wogqb7toofn660&st=8fgdr338&raw=1",
+          src: "https://www.dropbox.com/scl/fi/2bd97oncihoko62mnruc9/GOLD-102-BPM.mp3?rlkey=06814m4lo6bo9vxfddc92qob4&st=5wxxlb2s&raw=1",
+           links: { basic: "https://buy.stripe.com/fZu14naodaps1o386xe7m0o", premium: "https://buy.stripe.com/00waEX3ZPgNQ7MrgD3e7m0p" }
         },
+          { 
+            id: 6, name: "RADIO FUTURE", genre: "HOUSE", bpm: 98, key: "G Minor", 
+            image: "https://www.dropbox.com/scl/fi/fzpjqsayxhaej8ctkphun/jsrf-1649610520305.webp?rlkey=1mfr899dq7tmsyt090mau3yvt&st=di601pjp&raw=1",
+            src: "https://www.dropbox.com/scl/fi/1wytbcw9i2ub9fsk82c9m/RADIO-FUTURE-120-BPM-G-MINOR.mp3?rlkey=whgx05k0urolut1gl4tczm5vn&st=7zxx3066&raw=1",
+            links: { basic: "https://buy.stripe.com/5kQ4gzeEt9lo6InbiJe7m0q", premium: "https://buy.stripe.com/eVq4gz1RH7dg2s79aBe7m0r" }
+          },
+            { 
+              id: 7, name: "MIDNIGHT", genre: "NEW JACK SWING", bpm: 105, key: "F Minor", 
+              image: "https://www.dropbox.com/scl/fi/hyquat8kyraq3h13lvwcp/midnight-vaporwave-2880x1800-16113.jpg?rlkey=twgi4k01t4zf5ipqotyvi3sl8&st=r6wvlq9i&raw=1",
+              src: "https://www.dropbox.com/scl/fi/pu2s7a1oqvcagp7fzfi06/MIDNIGTH-105-BPM.mp3?rlkey=tb8lebs9x4lghmo6wayxvipds&st=m0th0gjj&raw=1",
+              links: { basic: "https://buy.stripe.com/7sYfZh7c1dBE0jZ72te7m0s", premium: "https://buy.stripe.com/14A4gzcwl69c3wb3Qhe7m0t" }
+            },
+              { 
+                id: 8, name: "VELVET", genre: "R&B", bpm: 80, key: "E Minor", 
+                image: "https://www.dropbox.com/scl/fi/fkshg1p7lz6uw7ui2ig7i/il_570xN.1533914450_esgx.webp?rlkey=r50wwglq7vykvgxqu6vgf91z7&st=b6by1ehu&raw=1",
+                src: "https://www.dropbox.com/scl/fi/32a99hc0frgqvhfcddn0f/VELVET-80-BPM-E-MINOR.mp3?rlkey=xoj4nxcoh6w4s79zmz663sow0&st=tr5n4d7t&raw=1",
+                links: { basic: "https://buy.stripe.com/9B66oH7c19lo3wbbiJe7m0u", premium: "https://buy.stripe.com/9B66oH1RH5587MrcmNe7m0v" }
+              } ,
+                  { 
+                    id: 9, name: "PIXELATED DREAMS", genre: "PLUGGNB", bpm: 120, key: "C Minor", 
+                    image: "https://www.dropbox.com/scl/fi/b1cu30s9gl4bb2x0soece/2_-_Pixelated_Dreams_101.6cm_x_76.2cm_BIS.webp?rlkey=un9j2bd8l7i58rcth41xuk3un&st=cqeaw081&raw=1",
+                    src: "https://www.dropbox.com/scl/fi/84dxkxicnb6pc7f1nh9c5/PIXELATED-DREAMS-120-BPM-C-minor.mp3?rlkey=b3q8vh19e0wqnj8a0yzpv95cs&st=38fqxkpp&raw=1",
+                    links: { basic: "https://buy.stripe.com/6oUdR92VL0OSeaP5Ype7m0w", premium: "https://buy.stripe.com/6oU3cv7c17dg2s71I9e7m0x" }
+                  },
+                      { 
+                        id: 10, name: "BUTTERFLY", genre: "R&B", bpm: 121, key: "C Major", 
+                        image: "https://www.dropbox.com/scl/fi/qoa6vlq1x0zfhx40oov1a/dff66f3c5cbb31a45b909694e9ed8f26.jpg?rlkey=to2y0cec12ctmpiu975ezvq56&st=gesdwk8l&raw=1",
+                        src: "https://www.dropbox.com/scl/fi/qmzsm3i9axrra1ztjsud0/Butterfly-121-BPM-C-Major.mp3?rlkey=x09zktmv44wsv9tfam1d4l3vz&st=kyx7g51q&raw=1",
+                        links: { basic: "https://buy.stripe.com/dRmdR97c169cd6LcmNe7m0y", premium: "https://buy.stripe.com/28E6oH8g58hkgiX1I9e7m0z" }
+                      }, 
+                          { 
+                            id: 11, name: "Summer nights", genre: "G-FUNK", bpm: 97, key: "D Minor", 
+                            image: "https://www.dropbox.com/scl/fi/lng5bh27syq1wu5a7n2ox/0x1900-000000-80-0-0.jpg?rlkey=j9stktnmb6ku0xrphcw8fppdh&st=a8eshnig&raw=1",
+                            src: "https://www.dropbox.com/scl/fi/dy2sysgzm9fhzdvvgke4o/SUMMER-NIGHTS-97-BPM-D-minor.mp3?rlkey=jm3u5gkcrgv39fntm1oiijlqi&st=wehra48m&raw=1",
+                            links: { basic: "https://buy.stripe.com/bJe8wP0NDfJM5Ej2Mde7m0A", premium: "https://buy.stripe.com/7sY6oH9k9558feTfyZe7m0B" }
+                          },
+                              { 
+                                id: 12, name: "DISCLOSURE", genre: "R&B", bpm: 98, key: "Eb Minor", 
+                                image: "https://www.dropbox.com/scl/fi/bg6dh2m6qo20pv3e1bcnq/ab67616d0000b273e2f9df5c00476154a4fbdfff.jpg?rlkey=a8i2pl7kkhkwyt8i04rntubia&st=woytkthw&raw=1",
+                                src: "https://www.dropbox.com/scl/fi/zo8hs0ls6fna75bomdvzi/DISCLOSURE-98-BPM-600cents.mp3?rlkey=zd80n2h7zboufw6fv060622a8&st=slciwieu&raw=1",
+                                links: { basic: "https://buy.stripe.com/9B600j2VL69c8QvdqRe7m0C", premium: "https://buy.stripe.com/3cI14nfIx69cc2H9aBe7m0D" }
+                              }                                
     ];
 
     let favBeats = JSON.parse(localStorage.getItem('sadboi_favs')) || [];
@@ -849,6 +894,9 @@
         return matchesSearch && matchesGenre && matchesFav;
       });
 
+      // CORRECCIÓN: Orden alfabético por nombre
+      filtered.sort((a, b) => a.name.localeCompare(b.name));
+
       if(filtered.length === 0) {
         container.innerHTML = `<tr><td colspan="7" class="text-center py-8 text-[#444] font-mono text-xs tracking-widest">NO BEATS FOUND</td></tr>`;
         return;
@@ -861,7 +909,7 @@
         tr.onclick = () => selectBeat(beat.id);
 
         tr.innerHTML = `
-          <td><div class="beat-num">${(beat.id + 1).toString().padStart(2, '0')}</div></td>
+          <td><div class="beat-num">${(index + 1).toString().padStart(2, '0')}</div></td>
           <td>
             <button class="play-btn ${currentBeat === beat.id && isPlaying ? 'playing' : ''}" id="playBtn${beat.id}" onclick="event.stopPropagation(); togglePlay(${beat.id})">
               <svg viewBox="0 0 24 24">${currentBeat === beat.id && isPlaying ? PAUSE_SVG : PLAY_SVG}</svg>
