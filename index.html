@@ -489,6 +489,9 @@
           <button class="filter-tag" data-genre="G-FUNK" onclick="setGenreFilter('G-FUNK')">G-FUNK</button>
           <button class="filter-tag" data-genre="HOUSE" onclick="setGenreFilter('HOUSE')">HOUSE</button>
           <button class="filter-tag" data-genre="PLUGGNB" onclick="setGenreFilter('PLUGGNB')">PLUGGNB</button>
+          <button class="filter-tag" data-genre="BOSSA NOVA" onclick="setGenreFilter('BOSSA NOVA')">BOSSA NOVA</button>
+          <button class="filter-tag" data-genre="HIP-HOP" onclick="setGenreFilter('HIP-HOP')">HIP-HOP</button>
+          <button class="filter-tag" data-genre="NEO-SOUL" onclick="setGenreFilter('NEO-SOUL')">NEO-SOUL</button>
           <button class="filter-tag" id="favFilterBtn" onclick="toggleFavFilter()">FAVORITES ♥</button>
         </div>
       </div>
@@ -797,7 +800,49 @@
                                 image: "https://www.dropbox.com/scl/fi/bg6dh2m6qo20pv3e1bcnq/ab67616d0000b273e2f9df5c00476154a4fbdfff.jpg?rlkey=a8i2pl7kkhkwyt8i04rntubia&st=woytkthw&raw=1",
                                 src: "https://www.dropbox.com/scl/fi/zo8hs0ls6fna75bomdvzi/DISCLOSURE-98-BPM-600cents.mp3?rlkey=zd80n2h7zboufw6fv060622a8&st=slciwieu&raw=1",
                                 links: { basic: "https://buy.stripe.com/9B600j2VL69c8QvdqRe7m0C", premium: "https://buy.stripe.com/3cI14nfIx69cc2H9aBe7m0D" }
-                              }                                
+                              },
+                                  { 
+                                    id: 13, name: "STREET ARCADE", genre: "HOUSE", bpm: 125, key: "B Major", 
+                                    image: "https://www.dropbox.com/scl/fi/u6ivnb1vi2g6wz27uxtut/maxresdefault-2.jpg?rlkey=gsthmvyzyfarspuae6ii6fopy&st=rxwc30py&raw=1",
+                                    src: "https://www.dropbox.com/scl/fi/ynct668c28x7sc7pv7mag/STREET-ARCADE-125-BPM.mp3?rlkey=xt8itk0lytfiliebkt00ulnjr&st=ybwv7abu&raw=1",
+                                    links: { basic: "https://buy.stripe.com/4gM3cv3ZP2X0aYD4Ule7m0E", premium: "https://buy.stripe.com/28E5kD7c11SW0jZdqRe7m0F" }
+                                  }, 
+                                      { 
+                                        id: 14, name: "BOSSA TRAP", genre: "BOSSA NOVA", bpm: 95, key: "Ab Minor", 
+                                        image: "https://www.dropbox.com/scl/fi/y39dxd78009zqx1vpg3mj/ab6761610000f1788b18570eff245e2d3c48792e.jpg?rlkey=79svskcvy8tu699mgtulvmrkk&st=97ybihtb&raw=1",
+                                        src: "https://www.dropbox.com/scl/fi/hu9scam8hzrf8rd4fpxx5/Bossa-trap-95-BPM-Ab-minor.wav?rlkey=glmtri0v0yzpsit1m28zejdev&st=bilxnupq&raw=1",
+                                        links: { basic: "https://buy.stripe.com/4gM14n53T69c3wb86xe7m0G", premium: "https://buy.stripe.com/bJe7sLfIx1SWeaP86xe7m0H" }
+                                      },
+                                        { 
+                                          id: 15, name: "NUJABES", genre: "HIP-HOP", bpm: 93, key: "F Major", 
+                                          image: "https://www.dropbox.com/scl/fi/oy0p5wgw6md5pnadohws0/ab6761610000517457f19d2f179b00207bfb3155.jpg?rlkey=qzjkrk6bku1xwcz7bh5azcwgj&st=3ulzlfr5&raw=1",
+                                          src: "https://www.dropbox.com/scl/fi/klhwl58zx4oiqdorldukp/NUJABES-93-BPM.wav?rlkey=cd7qfo6uoo8mys7aq229wgk51&st=ba73398m&raw=1",
+                                          links: { basic: "https://buy.stripe.com/cNi5kD2VL69c1o33Qhe7m0I", premium: "https://buy.stripe.com/4gMbJ153TfJM7Mr1I9e7m0J" }
+                                        },
+                                        { 
+                                          id: 16, name: "MARY J", genre: "NEW JACK SWING", bpm: 93, key: "Ab Minor", 
+                                          image: "https://www.dropbox.com/scl/fi/3hmtobr9cmj14q4jbx0ns/Mary_J_Blige_album_cover_My_Life.jpg?rlkey=vyjutkyu1r60rnwyqi1eoe52m&st=vvarfxjc&raw=1",
+                                          src: "https://www.dropbox.com/scl/fi/hun2bxnlhq5u4wghv20cg/Mary-J-93-BPM-300-cents.mp3?rlkey=mgvad8vpxwpf51i4gvvd2ftxd&st=jeuhld3k&raw=1",
+                                          links: { basic: "https://buy.stripe.com/cNi28rfIx2X00jZgD3e7m0K", premium: "https://buy.stripe.com/6oU28r2VL7dg3wb2Mde7m0L" }
+                                        },
+                                          { 
+                                            id: 17, name: "NEON", genre: "NEO-SOUL", bpm: 86, key: "D Minor", 
+                                            image: "https://www.dropbox.com/scl/fi/omhu53fahwedfmu7lw3m2/thumb-1920-1012090.jpg?rlkey=tedyyngle3s43hflle816xafb&st=kxkano3x&raw=1",
+                                            src: "https://www.dropbox.com/scl/fi/bwgqgey698v7sg8todquk/NEON-86-BPM-1200-CENTSS.mp3?rlkey=107ruoxdno7kb3vjk0lsbi801&st=srsms0rd&raw=1",
+                                            links: { basic: "https://buy.stripe.com/6oU3cv1RHgNQfeTbiJe7m0M", premium: "https://buy.stripe.com/6oU00jaod2X0d6LaeFe7m0N" }
+                                          },
+                                              { 
+                                                id: 18, name: "BABY", genre: "G-FUNK", bpm: 95, key: "G Minor", 
+                                                image: "https://www.dropbox.com/scl/fi/pk5gnr2hahd20ekwzxsbk/artworks-000332931303-33ej8r-t500x500.jpg?rlkey=xg040oh5d4rotev8p62ba4c5c&st=bv6ubrd4&raw=1",
+                                                src: "https://www.dropbox.com/scl/fi/7bgg8v6po85knsea9kiqt/BABY-95-BPM.mp3?rlkey=3evdrd12yh862l8kjlq06sbe6&st=7kigj5dm&raw=1",
+                                                links: { basic: "https://buy.stripe.com/14A6oHdAp2X09Uz4Ule7m0O", premium: "https://buy.stripe.com/3cI28reEt0OSd6L4Ule7m0P" }
+                                              },
+                                                  { 
+                                                    id: 19, name: "CORAZON DE MIEL", genre: "R&B", bpm: 78, key: "Ab Major", 
+                                                    image: "https://www.dropbox.com/scl/fi/2iegdm6jrvv94cin6w2ga/0643443241366_230.jpg?rlkey=sk6pxjbzqmxu6z48q2ryp7wgx&st=7jpk6t6p&raw=1",
+                                                    src: "https://www.dropbox.com/scl/fi/icruf8518twkeiaj9elvq/CORAZON-DE-MIEL-78-BPM-600CENTS-Ab-Major.mp3?rlkey=ycenw275x1hfej7u678rcb33w&st=r6jemmwc&raw=1",
+                                                    links: { basic: "https://buy.stripe.com/fZu00j1RH1SW0jZcmNe7m0Q", premium: "https://buy.stripe.com/5kQ5kD2VLbtwd6LgD3e7m0R" }
+                                                  },
     ];
 
     let favBeats = JSON.parse(localStorage.getItem('sadboi_favs')) || [];
