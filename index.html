@@ -4,16 +4,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SADBOIWITHSAUCE — Premium Beats & Production</title>
+  <title>SADBOIWITHSAUCE</title>
   
-  <meta property="og:title" content="SADBOIWITHSAUCE — Premium Beats" />
+  <meta property="og:title" content="SADBOIWITHSAUCE" />
   <meta property="og:description" content="Professional beat production. Mix & Master. Authentic sound ready for market." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.dropbox.com/scl/fi/49uoeu6j02lby9sy7ywrt/sadboi.png?rlkey=s9ve00rc5uwrxwg22nwrhh9u6&st=pxoaouis&raw=1" />
+  <link class="icon" type="image/png" href="https://www.dropbox.com/scl/fi/49uoeu6j02lby9sy7ywrt/sadboi.png?rlkey=s9ve00rc5uwrxwg22nwrhh9u6&st=pxoaouis&raw=1" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&display=swap"
     rel="stylesheet" />
     
   <script src="https://cdn.tailwindcss.com"></script>
@@ -44,9 +46,10 @@
       font-family: 'Montserrat', sans-serif;
       overflow-x: hidden;
       padding-bottom: 90px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border-bright) var(--bg);
     }
 
-    /* Grain overlay */
     body::before {
       content: '';
       position: fixed;
@@ -76,7 +79,6 @@
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 2px; }
 
-    /* Nav */
     #navbar {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -137,7 +139,6 @@
     }
     #mobile-menu.open { display: flex; }
 
-    /* Hero */
     .hero {
       min-height: 100vh; display: flex; flex-direction: column;
       align-items: center; justify-content: center;
@@ -154,20 +155,11 @@
 
     .hero-content { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; }
 
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-family: 'JetBrains Mono', monospace; font-size: 10px;
-      letter-spacing: 0.2em; color: var(--text-muted);
-      text-transform: uppercase; border: 1px solid var(--border);
-      padding: 7px 14px; border-radius: 2px; margin-bottom: 36px;
-    }
-
     .hero-title {
       font-size: clamp(36px, 7vw, 88px); font-weight: 900;
       letter-spacing: -0.02em; line-height: 1.0; color: var(--text-primary);
       margin-bottom: 22px; text-transform: uppercase;
     }
-    .hero-title em { font-style: normal; color: var(--text-secondary); }
 
     .hero-sub {
       font-size: clamp(13px, 1.5vw, 16px); font-weight: 400;
@@ -208,13 +200,11 @@
       50% { opacity: 1; transform: scaleY(1) translateY(5px) }
     }
 
-    /* Section base */
     .section { max-width: 1200px; margin: 0 auto; padding: 100px 24px; }
     .section-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--text-muted); text-transform: uppercase; margin-bottom: 14px; }
     .section-title { font-size: clamp(24px, 3.5vw, 38px); font-weight: 800; letter-spacing: -0.01em; color: var(--text-primary); text-transform: uppercase; margin-bottom: 6px; }
     .section-sep { width: 32px; height: 1px; background: var(--border-bright); margin: 18px 0 48px; }
 
-    /* FILTERS UI */
     .filter-container {
       display: flex; justify-content: space-between; align-items: center;
       flex-wrap: wrap; gap: 16px; margin-bottom: 24px;
@@ -237,18 +227,96 @@
     .filter-tag:hover { color: var(--text-primary); border-color: var(--border-bright); }
     .filter-tag.active { color: var(--bg); background: var(--text-primary); border-color: var(--text-primary); font-weight: bold; }
 
-    /* Beat Catalog */
     #beats { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .beat-table { width: 100%; border-collapse: collapse; }
-    .beat-table thead tr { border-bottom: 1px solid var(--border); }
-    .beat-table thead th {
-      font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.2em;
-      color: var(--text-muted); text-transform: uppercase; padding: 12px 16px; text-align: left; font-weight: 500;
+    
+    /* ESTILOS LISTA HORIZONTAL */
+    .beats-carousel-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      margin-bottom: 20px;
     }
-    .beat-row { border-bottom: 1px solid var(--border); transition: background 0.2s; cursor: pointer; }
-    .beat-row:hover { background: var(--card-hover); }
-    .beat-row td { padding: 16px 16px; vertical-align: middle; }
-    .beat-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-muted); width: 36px; }
+    .beats-horizontal-list {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(200px, 1fr));
+      gap: 16px;
+      transition: opacity 0.3s ease;
+    }
+    .beat-card-h {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .beat-card-h:hover {
+      background: var(--card-hover);
+      border-color: var(--border-bright);
+    }
+    .beat-card-h.active {
+      border-color: var(--text-secondary);
+    }
+    .beat-card-top {
+      position: relative;
+      margin-bottom: 14px;
+    }
+    .beat-card-actions-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      opacity: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      border-radius: 4px;
+      transition: opacity 0.2s ease;
+      z-index: 2;
+    }
+    .beat-card-top:hover .beat-card-actions-overlay {
+      opacity: 1;
+    }
+    .carousel-nav-controls {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .carousel-btn {
+      background: transparent;
+      border: 1px solid var(--border-bright);
+      color: var(--text-primary);
+      width: 36px;
+      height: 36px;
+      border-radius: 3px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .carousel-btn:hover:not(:disabled) {
+      background: var(--text-primary);
+      color: var(--bg);
+      border-color: var(--text-primary);
+    }
+    .carousel-btn:disabled {
+      opacity: 0.2;
+      cursor: not-allowed;
+    }
+    .carousel-indicator {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+    }
 
     .play-btn {
       width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--border-bright);
@@ -270,8 +338,6 @@
 
     .beat-name { font-size: 14px; font-weight: 700; color: var(--text-primary); letter-spacing: 0.01em; }
     .beat-genre { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-muted); letter-spacing: 0.1em; margin-top: 3px; }
-    .beat-meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary); }
-    .beat-meta span { color: var(--text-muted); font-size: 10px; display: block; margin-top: 2px; }
 
     .buy-btn {
       font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
@@ -280,7 +346,6 @@
     }
     .buy-btn:hover { background: var(--text-primary); color: var(--bg); border-color: var(--text-primary); }
 
-    /* Licensing & Services */
     .license-grid, .services-grid { display: grid; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
     .license-grid { grid-template-columns: repeat(3, 1fr); }
     .services-grid { grid-template-columns: repeat(3, 1fr); }
@@ -305,14 +370,6 @@
     .service-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 20px; }
     .service-price { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-muted); letter-spacing: 0.05em; }
 
-    #trust { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .trust-inner { max-width: 1200px; margin: 0 auto; padding: 24px 24px; display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; }
-    .trust-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.2em; color: var(--text-muted); text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
-    .trust-label::before { content: '🔒'; font-size: 12px; }
-    .trust-divider { width: 1px; height: 20px; background: var(--border); }
-    .trust-icons { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: center; }
-    .trust-icon { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: var(--text-muted); border: 1px solid var(--border); padding: 5px 12px; border-radius: 3px; }
-
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
     .contact-form { display: flex; flex-direction: column; gap: 14px; }
     .form-field { background: var(--card); border: 1px solid var(--border); border-radius: 3px; padding: 14px 16px; font-size: 13px; color: var(--text-primary); font-family: 'Montserrat', sans-serif; outline: none; transition: border-color 0.2s; resize: none; }
@@ -322,14 +379,20 @@
     .contact-item h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; margin-bottom: 6px; }
     .contact-item p { font-size: 14px; color: var(--text-secondary); }
 
-    footer { border-top: 1px solid var(--border); padding: 32px 24px; }
+    /* FOOTER MEJORADO */
+    footer { 
+      border-top: 1px solid var(--border); 
+      padding: 32px 24px; 
+      position: relative; 
+      z-index: 10; 
+      background: var(--bg);
+    }
     .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;}
-    .footer-copy { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-muted); letter-spacing: 0.1em; }
+    .footer-copy { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-secondary); letter-spacing: 0.1em; }
     .footer-links { display: flex; gap: 24px; }
-    .footer-links a { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--text-secondary); }
+    .footer-links a { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--text-secondary); text-decoration: none; transition: color 0.2s; font-weight: 500; }
+    .footer-links a:hover { color: #ffffff; }
 
-    /* Sticky Player */
     #sticky-player {
       position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
       background: rgba(8, 8, 8, 0.97); backdrop-filter: blur(24px);
@@ -351,7 +414,6 @@
     .player-track-name { font-size: 12px; font-weight: 700; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .player-track-genre { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; }
 
-    /* REAL VISUALIZER CANVAS */
     #visualizerCanvas { height: 30px; width: 100px; flex-shrink: 0; }
 
     .player-progress { flex: 1; display: flex; flex-direction: column; gap: 5px; }
@@ -366,54 +428,20 @@
 
     .player-close { background: none; border: none; cursor: pointer; padding: 4px; color: var(--text-muted); font-size: 18px; flex-shrink: 0; transition: color 0.2s; }
     .player-close:hover { color: var(--text-primary); }
+    
     @media (max-width: 768px) {
       .nav-links { display: none; }
       #hamburger { display: flex; }
-      .hero-title { 
-        font-size: 32px;    
-        line-height: 1.1; 
-        word-wrap: break-word;
+      .hero-title { font-size: 32px; line-height: 1.1; word-wrap: break-word; }
+      .beats-horizontal-list {
+        grid-template-columns: 1fr;
       }
-
-      /* Arreglo Crítico: Tabla de Beats */
-      .beat-table thead { display: none; }
-      .beat-table, .beat-table tbody { display: block; width: 100%; }
-      .beat-row { 
-        display: flex; 
-        flex-wrap: wrap; 
-        align-items: center; 
-        padding: 16px 0; 
-        gap: 12px; 
-        border-bottom: 1px solid var(--border);
-      }
-      .beat-row td { display: block; padding: 0; border: none; }
-      .beat-row td:nth-child(1) { display: none; } /* Ocultar número */
-      .beat-row td:nth-child(2) { order: 1; } /* Play btn */
-      .beat-row td:nth-child(4) { order: 2; flex: 1 1 50%; min-width: 0; } /* Info: Imagen y Título */
-      .beat-row td:nth-child(3) { order: 3; } /* Fav btn */
-      .beat-row td:nth-child(5), .beat-row td:nth-child(6) { display: none; } /* Ocultar BPM y Key para compactar */
-      .beat-row td:nth-child(7) { order: 4; width: 100%; margin-top: 10px; } /* Action Button */
       .buy-btn { width: 100%; padding: 12px; text-align: center; }
-
-      /* Ajuste de Cuadros (Licencias y Servicios) */
-      .license-grid, .services-grid { 
-        grid-template-columns: 1fr; 
-        gap: 12px; 
-        background: transparent; 
-        border: none; 
-      }
-      .license-card, .service-card { 
-        padding: 24px 20px; /* Reducción de padding para evitar "agrandamiento" */
-        border: 1px solid var(--border); 
-        border-radius: 4px; 
-      }
-      .license-price { font-size: 32px; } /* Texto de precio más proporcionado */
+      .license-grid, .services-grid { grid-template-columns: 1fr; gap: 12px; background: transparent; border: none; }
+      .license-card, .service-card { padding: 24px 20px; border: 1px solid var(--border); border-radius: 4px; }
+      .license-price { font-size: 32px; } 
       .license-desc { margin-bottom: 20px; }
-
-      /* Contacto */
       .contact-grid { grid-template-columns: 1fr; gap: 32px; }
-
-      /* Reproductor pegajoso en móvil */
       .player-inner { gap: 12px; height: 60px; }
       .player-track { flex: 0 0 100px; }
       .player-vol, #visualizerCanvas { display: none; }
@@ -458,7 +486,7 @@
       <source src="https://www.dropbox.com/scl/fi/jh66ejuoe5y6zh34yz6c0/1210.webm?rlkey=y1bouym4857un5hmf39i6cl1x&st=5bhec2sc&raw=1" type="video/webm">
     </video>
     <div class="hero-content">
-      <h1 class="hero-title">SADBOIWITHSAUCE<br /><em>MIX & MASTER</em><br />BEATS</h1>
+      <h1 class="hero-title">SADBOIWITHSAUCE<br /></h1>
       <p class="hero-sub">Professional production with over 10 years of experience. Authentic sound, ready for market.</p>
       <div class="hero-actions">
         <button class="btn-primary" onclick="document.getElementById('beats').scrollIntoView({behavior:'smooth'})">Explore Catalog</button>
@@ -496,22 +524,15 @@
         </div>
       </div>
 
-      <div class="fade-in">
-        <table class="beat-table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Play</th>
-              <th>Fav</th>
-              <th>Title / Genre</th>
-              <th>BPM</th>
-              <th>Key</th>
-              <th style="text-align:right">Action</th>
-            </tr>
-          </thead>
-          <tbody id="beatListContainer">
-            </tbody>
-        </table>
+      <div class="fade-in beats-carousel-container">
+        <div class="beats-horizontal-list" id="beatListContainer">
+          </div>
+        
+        <div class="carousel-nav-controls">
+          <span class="carousel-indicator" id="carouselIndicator">PAGE 1 OF 1</span>
+          <button class="carousel-btn" id="prevPageBtn" onclick="changePage(-1)" disabled>←</button>
+          <button class="carousel-btn" id="nextPageBtn" onclick="changePage(1)" disabled>→</button>
+        </div>
       </div>
     </div>
   </section>
@@ -542,7 +563,7 @@
           <ul class="license-features">
             <li class="active">WAV + MP3 (untagged)</li>
             <li class="active">Unlimited streams</li>
-            <li class="inactive">Stems included</li>
+            <li class="active">Stems included</li>
             <li class="inactive">Exclusivity</li>
           </ul>
         </div>
@@ -561,8 +582,6 @@
     </div>
   </section>
 
-
-
   <section id="services" style="background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border)">
     <div class="section">
       <div class="fade-in">
@@ -571,7 +590,7 @@
         <div class="section-sep"></div>
       </div>
       <div class="services-grid fade-in">
-        <div class="service-card"><div class="service-icon">🎹</div><div class="service-name">Custom Beats</div><div class="service-desc">Beats created from scratch.</div><div class="service-price">from $100 USD</div></div>
+        <div class="service-card"><div class="service-icon">🎹</div><div class="service-name">Custom Beats</div><div class="service-desc">Beats created from scratch.</div><div class="service-price">from $90 USD</div></div>
         <div class="service-card"><div class="service-icon">🎚️</div><div class="service-name">Mixing</div><div class="service-desc">Professional mixing for your song.</div><div class="service-price">from $80 USD / track</div></div>
         <div class="service-card"><div class="service-icon">💿</div><div class="service-name">Mastering</div><div class="service-desc">Ready for Spotify & Apple Music.</div><div class="service-price">from $50 USD / track</div></div>
       </div>
@@ -586,7 +605,7 @@
         <div class="section-sep"></div>
       </div>
       <div class="contact-grid fade-in">
-        <form class="contact-form" action="https://formsubmit.co/aron.103@hotmail.com" method="POST">
+        <form class="contact-form" action="https://formsubmit.co/el/vapana" method="POST">
           <input type="hidden" name="_captcha" value="false">
           
           <div>
@@ -618,7 +637,11 @@
   <footer>
     <div class="footer-inner">
       <div class="footer-copy">© 2026 SADBOIWITHSAUCE. All rights reserved.</div>
-      <div class="footer-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Licensing FAQ</a></div>
+      <div class="footer-links">
+        <a href="https://drive.google.com/file/d/1wYVN9p1H_08dWItbCKBdY3DV6Eby6X4l/view?usp=sharing" target="_blank">Privacy</a>
+        <a href="https://drive.google.com/file/d/1I8CZqFOM-2aQzXYrxMybpKSqKk9VALIK/view?usp=sharing" target="_blank">Terms</a>
+        <a href="https://drive.google.com/file/d/1YzXL8sojgouPXrvlM8H4ovjJ6VbXukM8/view?usp=sharing" target="_blank">Licensing FAQ</a>
+      </div>
     </div>
   </footer>
 
@@ -715,118 +738,128 @@
       { 
         id: 2, name: "DREAM", genre: "NEW JACK SWING", bpm: 112, key: "C Minor", 
         image: "https://www.dropbox.com/scl/fi/xfv3cl0hd3xzft6rugna3/bd556bd2a2707cf539e013d952979ec8.jpg?rlkey=7op7ayqnbf2rkve3pbp3c1u7q&st=m4ptyr32&raw=1",
-        src: "https://www.dropbox.com/scl/fi/w6glml2u10b24qk36bj1w/DREAM-112-BPM-C-MINOR.mp3?rlkey=hqt5mi75z0cplllz1huipb6cw&st=vnjairyd&raw=1",
+        src: "https://www.dropbox.com/scl/fi/w6glml2u10b24qk36bj1w/DREAM-112-BPM-C-MINOR.mp3?rlkey=hqt75mi75z0cplllz1huipb6cw&st=vnjairyd&raw=1",
          links: { basic: "https://buy.stripe.com/aFa8wP7c1414feT5Ype7m0i", premium: "https://buy.stripe.com/cNi8wP0NDdBE7MrgD3e7m0j" }
       },
-
-        { 
-          id: 3, name: "BOYZZ DONT CRY", genre: "NEW JACK SWING", bpm: 106, key: "G Minor", 
-          image: "https://www.dropbox.com/scl/fi/ytbu6pmtsf8dbrhwruyuo/A-700458-1429382020-1418.jpg?rlkey=c0hbj7lvn29l3sf0z0mwvdqx2&st=6dc3q95v&raw=1",
-          src: "https://www.dropbox.com/scl/fi/z483u845yqemdv519bbro/BOYZZ-DONT-CRY-106-BPM-G-minor.mp3?rlkey=5itin2iwncmv0yghidd0nz40x&st=pdajlxcf&raw=1",
-           links: { basic: "https://buy.stripe.com/aFaeVd7c18hkc2H1I9e7m0k", premium: "https://buy.stripe.com/7sYdR953T4140jZgD3e7m0l" }
-        },
-        { 
-          id: 4, name: "SMOOTH GROOVE", genre: "NEW JACK SWING", bpm: 104, key: "Eb Minor", 
-          image: "https://www.dropbox.com/scl/fi/vh299oy4mweiqkw535p49/TCD41.jpg?rlkey=pq5rl4ugpnbkmt93n6aqalj3i&st=d4uz9vjm&raw=1",
-          src: "https://www.dropbox.com/scl/fi/l113cumow7svr8ny1ymw5/SMOOTH-GROOVE-104-BPM.mp3?rlkey=v2umcqtyqexeowzpfr79t8ewu&st=cy2010yk&raw=1",
-           links: { basic: "https://buy.stripe.com/4gM8wP67X2X0c2H0E5e7m0m", premium: "https://buy.stripe.com/fZueVdbshbtw1o32Mde7m0n" }
-        },
-        { 
-          id: 5, name: "GOLD", genre: "NEW JACK SWING", bpm: 102, key: "D Minor", 
-          image: "https://www.dropbox.com/scl/fi/qi91nca0mswgncvi2fra0/maxresdefault.jpg?rlkey=98wxrt82ph9wogqb7toofn660&st=8fgdr338&raw=1",
-          src: "https://www.dropbox.com/scl/fi/2bd97oncihoko62mnruc9/GOLD-102-BPM.mp3?rlkey=06814m4lo6bo9vxfddc92qob4&st=5wxxlb2s&raw=1",
-           links: { basic: "https://buy.stripe.com/fZu14naodaps1o386xe7m0o", premium: "https://buy.stripe.com/00waEX3ZPgNQ7MrgD3e7m0p" }
-        },
-          { 
-            id: 6, name: "RADIO FUTURE", genre: "HOUSE", bpm: 98, key: "G Minor", 
-            image: "https://www.dropbox.com/scl/fi/fzpjqsayxhaej8ctkphun/jsrf-1649610520305.webp?rlkey=1mfr899dq7tmsyt090mau3yvt&st=di601pjp&raw=1",
-            src: "https://www.dropbox.com/scl/fi/1wytbcw9i2ub9fsk82c9m/RADIO-FUTURE-120-BPM-G-MINOR.mp3?rlkey=whgx05k0urolut1gl4tczm5vn&st=7zxx3066&raw=1",
-            links: { basic: "https://buy.stripe.com/5kQ4gzeEt9lo6InbiJe7m0q", premium: "https://buy.stripe.com/eVq4gz1RH7dg2s79aBe7m0r" }
-          },
-            { 
-              id: 7, name: "MIDNIGHT", genre: "NEW JACK SWING", bpm: 105, key: "F Minor", 
-              image: "https://www.dropbox.com/scl/fi/hyquat8kyraq3h13lvwcp/midnight-vaporwave-2880x1800-16113.jpg?rlkey=twgi4k01t4zf5ipqotyvi3sl8&st=r6wvlq9i&raw=1",
-              src: "https://www.dropbox.com/scl/fi/pu2s7a1oqvcagp7fzfi06/MIDNIGTH-105-BPM.mp3?rlkey=tb8lebs9x4lghmo6wayxvipds&st=m0th0gjj&raw=1",
-              links: { basic: "https://buy.stripe.com/7sYfZh7c1dBE0jZ72te7m0s", premium: "https://buy.stripe.com/14A4gzcwl69c3wb3Qhe7m0t" }
-            },
-              { 
-                id: 8, name: "VELVET", genre: "R&B", bpm: 80, key: "E Minor", 
-                image: "https://www.dropbox.com/scl/fi/fkshg1p7lz6uw7ui2ig7i/il_570xN.1533914450_esgx.webp?rlkey=r50wwglq7vykvgxqu6vgf91z7&st=b6by1ehu&raw=1",
-                src: "https://www.dropbox.com/scl/fi/32a99hc0frgqvhfcddn0f/VELVET-80-BPM-E-MINOR.mp3?rlkey=xoj4nxcoh6w4s79zmz663sow0&st=tr5n4d7t&raw=1",
-                links: { basic: "https://buy.stripe.com/9B66oH7c19lo3wbbiJe7m0u", premium: "https://buy.stripe.com/9B66oH1RH5587MrcmNe7m0v" }
-              } ,
-                  { 
-                    id: 9, name: "PIXELATED DREAMS", genre: "PLUGGNB", bpm: 120, key: "C Minor", 
-                    image: "https://www.dropbox.com/scl/fi/b1cu30s9gl4bb2x0soece/2_-_Pixelated_Dreams_101.6cm_x_76.2cm_BIS.webp?rlkey=un9j2bd8l7i58rcth41xuk3un&st=cqeaw081&raw=1",
-                    src: "https://www.dropbox.com/scl/fi/84dxkxicnb6pc7f1nh9c5/PIXELATED-DREAMS-120-BPM-C-minor.mp3?rlkey=b3q8vh19e0wqnj8a0yzpv95cs&st=38fqxkpp&raw=1",
-                    links: { basic: "https://buy.stripe.com/6oUdR92VL0OSeaP5Ype7m0w", premium: "https://buy.stripe.com/6oU3cv7c17dg2s71I9e7m0x" }
-                  },
-                      { 
-                        id: 10, name: "BUTTERFLY", genre: "R&B", bpm: 121, key: "C Major", 
-                        image: "https://www.dropbox.com/scl/fi/qoa6vlq1x0zfhx40oov1a/dff66f3c5cbb31a45b909694e9ed8f26.jpg?rlkey=to2y0cec12ctmpiu975ezvq56&st=gesdwk8l&raw=1",
-                        src: "https://www.dropbox.com/scl/fi/qmzsm3i9axrra1ztjsud0/Butterfly-121-BPM-C-Major.mp3?rlkey=x09zktmv44wsv9tfam1d4l3vz&st=kyx7g51q&raw=1",
-                        links: { basic: "https://buy.stripe.com/dRmdR97c169cd6LcmNe7m0y", premium: "https://buy.stripe.com/28E6oH8g58hkgiX1I9e7m0z" }
-                      }, 
-                          { 
-                            id: 11, name: "Summer nights", genre: "G-FUNK", bpm: 97, key: "D Minor", 
-                            image: "https://www.dropbox.com/scl/fi/lng5bh27syq1wu5a7n2ox/0x1900-000000-80-0-0.jpg?rlkey=j9stktnmb6ku0xrphcw8fppdh&st=a8eshnig&raw=1",
-                            src: "https://www.dropbox.com/scl/fi/dy2sysgzm9fhzdvvgke4o/SUMMER-NIGHTS-97-BPM-D-minor.mp3?rlkey=jm3u5gkcrgv39fntm1oiijlqi&st=wehra48m&raw=1",
-                            links: { basic: "https://buy.stripe.com/bJe8wP0NDfJM5Ej2Mde7m0A", premium: "https://buy.stripe.com/7sY6oH9k9558feTfyZe7m0B" }
-                          },
-                              { 
-                                id: 12, name: "DISCLOSURE", genre: "R&B", bpm: 98, key: "Eb Minor", 
-                                image: "https://www.dropbox.com/scl/fi/bg6dh2m6qo20pv3e1bcnq/ab67616d0000b273e2f9df5c00476154a4fbdfff.jpg?rlkey=a8i2pl7kkhkwyt8i04rntubia&st=woytkthw&raw=1",
-                                src: "https://www.dropbox.com/scl/fi/zo8hs0ls6fna75bomdvzi/DISCLOSURE-98-BPM-600cents.mp3?rlkey=zd80n2h7zboufw6fv060622a8&st=slciwieu&raw=1",
-                                links: { basic: "https://buy.stripe.com/9B600j2VL69c8QvdqRe7m0C", premium: "https://buy.stripe.com/3cI14nfIx69cc2H9aBe7m0D" }
-                              },
-                                  { 
-                                    id: 13, name: "STREET ARCADE", genre: "HOUSE", bpm: 125, key: "B Major", 
-                                    image: "https://www.dropbox.com/scl/fi/u6ivnb1vi2g6wz27uxtut/maxresdefault-2.jpg?rlkey=gsthmvyzyfarspuae6ii6fopy&st=rxwc30py&raw=1",
-                                    src: "https://www.dropbox.com/scl/fi/ynct668c28x7sc7pv7mag/STREET-ARCADE-125-BPM.mp3?rlkey=xt8itk0lytfiliebkt00ulnjr&st=ybwv7abu&raw=1",
-                                    links: { basic: "https://buy.stripe.com/4gM3cv3ZP2X0aYD4Ule7m0E", premium: "https://buy.stripe.com/28E5kD7c11SW0jZdqRe7m0F" }
-                                  }, 
-                                      { 
-                                        id: 14, name: "BOSSA TRAP", genre: "BOSSA NOVA", bpm: 95, key: "Ab Minor", 
-                                        image: "https://www.dropbox.com/scl/fi/y39dxd78009zqx1vpg3mj/ab6761610000f1788b18570eff245e2d3c48792e.jpg?rlkey=79svskcvy8tu699mgtulvmrkk&st=97ybihtb&raw=1",
-                                        src: "https://www.dropbox.com/scl/fi/hu9scam8hzrf8rd4fpxx5/Bossa-trap-95-BPM-Ab-minor.wav?rlkey=glmtri0v0yzpsit1m28zejdev&st=bilxnupq&raw=1",
-                                        links: { basic: "https://buy.stripe.com/4gM14n53T69c3wb86xe7m0G", premium: "https://buy.stripe.com/bJe7sLfIx1SWeaP86xe7m0H" }
-                                      },
-                                        { 
-                                          id: 15, name: "NUJABES", genre: "HIP-HOP", bpm: 93, key: "F Major", 
-                                          image: "https://www.dropbox.com/scl/fi/oy0p5wgw6md5pnadohws0/ab6761610000517457f19d2f179b00207bfb3155.jpg?rlkey=qzjkrk6bku1xwcz7bh5azcwgj&st=3ulzlfr5&raw=1",
-                                          src: "https://www.dropbox.com/scl/fi/klhwl58zx4oiqdorldukp/NUJABES-93-BPM.wav?rlkey=cd7qfo6uoo8mys7aq229wgk51&st=ba73398m&raw=1",
-                                          links: { basic: "https://buy.stripe.com/cNi5kD2VL69c1o33Qhe7m0I", premium: "https://buy.stripe.com/4gMbJ153TfJM7Mr1I9e7m0J" }
-                                        },
-                                        { 
-                                          id: 16, name: "MARY J", genre: "NEW JACK SWING", bpm: 93, key: "Ab Minor", 
-                                          image: "https://www.dropbox.com/scl/fi/3hmtobr9cmj14q4jbx0ns/Mary_J_Blige_album_cover_My_Life.jpg?rlkey=vyjutkyu1r60rnwyqi1eoe52m&st=vvarfxjc&raw=1",
-                                          src: "https://www.dropbox.com/scl/fi/hun2bxnlhq5u4wghv20cg/Mary-J-93-BPM-300-cents.mp3?rlkey=mgvad8vpxwpf51i4gvvd2ftxd&st=jeuhld3k&raw=1",
-                                          links: { basic: "https://buy.stripe.com/cNi28rfIx2X00jZgD3e7m0K", premium: "https://buy.stripe.com/6oU28r2VL7dg3wb2Mde7m0L" }
-                                        },
-                                          { 
-                                            id: 17, name: "NEON", genre: "NEO-SOUL", bpm: 86, key: "D Minor", 
-                                            image: "https://www.dropbox.com/scl/fi/omhu53fahwedfmu7lw3m2/thumb-1920-1012090.jpg?rlkey=tedyyngle3s43hflle816xafb&st=kxkano3x&raw=1",
-                                            src: "https://www.dropbox.com/scl/fi/bwgqgey698v7sg8todquk/NEON-86-BPM-1200-CENTSS.mp3?rlkey=107ruoxdno7kb3vjk0lsbi801&st=srsms0rd&raw=1",
-                                            links: { basic: "https://buy.stripe.com/6oU3cv1RHgNQfeTbiJe7m0M", premium: "https://buy.stripe.com/6oU00jaod2X0d6LaeFe7m0N" }
-                                          },
-                                              { 
-                                                id: 18, name: "BABY", genre: "G-FUNK", bpm: 95, key: "G Minor", 
-                                                image: "https://www.dropbox.com/scl/fi/pk5gnr2hahd20ekwzxsbk/artworks-000332931303-33ej8r-t500x500.jpg?rlkey=xg040oh5d4rotev8p62ba4c5c&st=bv6ubrd4&raw=1",
-                                                src: "https://www.dropbox.com/scl/fi/7bgg8v6po85knsea9kiqt/BABY-95-BPM.mp3?rlkey=3evdrd12yh862l8kjlq06sbe6&st=7kigj5dm&raw=1",
-                                                links: { basic: "https://buy.stripe.com/14A6oHdAp2X09Uz4Ule7m0O", premium: "https://buy.stripe.com/3cI28reEt0OSd6L4Ule7m0P" }
-                                              },
-                                                  { 
-                                                    id: 19, name: "CORAZON DE MIEL", genre: "R&B", bpm: 78, key: "Ab Major", 
-                                                    image: "https://www.dropbox.com/scl/fi/2iegdm6jrvv94cin6w2ga/0643443241366_230.jpg?rlkey=sk6pxjbzqmxu6z48q2ryp7wgx&st=7jpk6t6p&raw=1",
-                                                    src: "https://www.dropbox.com/scl/fi/icruf8518twkeiaj9elvq/CORAZON-DE-MIEL-78-BPM-600CENTS-Ab-Major.mp3?rlkey=ycenw275x1hfej7u678rcb33w&st=r6jemmwc&raw=1",
-                                                    links: { basic: "https://buy.stripe.com/fZu00j1RH1SW0jZcmNe7m0Q", premium: "https://buy.stripe.com/5kQ5kD2VLbtwd6LgD3e7m0R" }
-                                                  },
+      { 
+        id: 3, name: "BOYZZ DONT CRY", genre: "NEW JACK SWING", bpm: 106, key: "G Minor", 
+        image: "https://www.dropbox.com/scl/fi/ytbu6pmtsf8dbrhwruyuo/A-700458-1429382020-1418.jpg?rlkey=c0hbj7lvn29l3sf0z0mwvdqx2&st=6dc3q95v&raw=1",
+        src: "https://www.dropbox.com/scl/fi/z483u845yqemdv519bbro/BOYZZ-DONT-CRY-106-BPM-G-minor.mp3?rlkey=5itin2iwncmv0yghidd0nz40x&st=pdajlxcf&raw=1",
+         links: { basic: "https://buy.stripe.com/aFaeVd7c18hkc2H1I9e7m0k", premium: "https://buy.stripe.com/7sYdR953T4140jZgD3e7m0l" }
+      },
+      { 
+        id: 4, name: "SMOOTH GROOVE", genre: "NEW JACK SWING", bpm: 104, key: "Eb Minor", 
+        image: "https://www.dropbox.com/scl/fi/vh299oy4mweiqkw535p49/TCD41.jpg?rlkey=pq5rl4ugpnbkmt93n6aqalj3i&st=d4uz9vjm&raw=1",
+        src: "https://www.dropbox.com/scl/fi/l113cumow7svr8ny1ymw5/SMOOTH-GROOVE-104-BPM.mp3?rlkey=v2umcqtyqexeowzpfr79t8ewu&st=cy2010yk&raw=1",
+         links: { basic: "https://buy.stripe.com/4gM8wP67X2X0c2H0E5e7m0m", premium: "https://buy.stripe.com/fZueVdbshbtw1o32Mde7m0n" }
+      },
+      { 
+        id: 5, name: "GOLD", genre: "NEW JACK SWING", bpm: 102, key: "D Minor", 
+        image: "https://www.dropbox.com/scl/fi/qi91nca0mswgncvi2fra0/maxresdefault.jpg?rlkey=98wxrt82ph9wogqb7toofn660&st=8fgdr338&raw=1",
+        src: "https://www.dropbox.com/scl/fi/2bd97oncihoko62mnruc9/GOLD-102-BPM.mp3?rlkey=06814m4lo6bo9vxfddc92qob4&st=5wxxlb2s&raw=1",
+         links: { basic: "https://buy.stripe.com/fZu14naodaps1o386xe7m0o", premium: "https://buy.stripe.com/00waEX3ZPgNQ7MrgD3e7m0p" }
+      },
+      { 
+        id: 6, name: "RADIO FUTURE", genre: "HOUSE", bpm: 98, key: "G Minor", 
+        image: "https://www.dropbox.com/scl/fi/fzpjqsayxhaej8ctkphun/jsrf-1649610520305.webp?rlkey=1mfr899dq7tmsyt090mau3yvt&st=di601pjp&raw=1",
+        src: "https://www.dropbox.com/scl/fi/1wytbcw9i2ub9fsk82c9m/RADIO-FUTURE-120-BPM-G-MINOR.mp3?rlkey=whgx05k0urolut1gl4tczm5vn&st=7zxx3066&raw=1",
+        links: { basic: "https://buy.stripe.com/5kQ4gzeEt9lo6InbiJe7m0q", premium: "https://buy.stripe.com/eVq4gz1RH7dg2s79aBe7m0r" }
+      },
+      { 
+        id: 7, name: "MIDNIGHT", genre: "NEW JACK SWING", bpm: 105, key: "F Minor", 
+        image: "https://www.dropbox.com/scl/fi/hyquat8kyraq3h13lvwcp/midnight-vaporwave-2880x1800-16113.jpg?rlkey=twgi4k01t4zf5ipqotyvi3sl8&st=r6wvlq9i&raw=1",
+        src: "https://www.dropbox.com/scl/fi/pu2s7a1oqvcagp7fzfi06/MIDNIGTH-105-BPM.mp3?rlkey=tb8lebs9x4lghmo6wayxvipds&st=m0th0gjj&raw=1",
+        links: { basic: "https://buy.stripe.com/7sYfZh7c1dBE0jZ72te7m0s", premium: "https://buy.stripe.com/14A4gzcwl69c3wb3Qhe7m0t" }
+      },
+      { 
+        id: 8, name: "VELVET", genre: "R&B", bpm: 80, key: "E Minor", 
+        image: "https://www.dropbox.com/scl/fi/fkshg1p7lz6uw7ui2ig7i/il_570xN.1533914450_esgx.webp?rlkey=r50wwglq7vykvgxqu6vgf91z7&st=b6by1ehu&raw=1",
+        src: "https://www.dropbox.com/scl/fi/32a99hc0frgqvhfcddn0f/VELVET-80-BPM-E-MINOR.mp3?rlkey=xoj4nxcoh6w4s79zmz663sow0&st=tr5n4d7t&raw=1",
+        links: { basic: "https://buy.stripe.com/9B66oH7c19lo3wbbiJe7m0u", premium: "https://buy.stripe.com/9B66oH1RH5587MrcmNe7m0v" }
+      },
+      { 
+        id: 9, name: "PIXELATED DREAMS", genre: "PLUGGNB", bpm: 120, key: "C Minor", 
+        image: "https://www.dropbox.com/scl/fi/b1cu30s9gl4bb2x0soece/2_-_Pixelated_Dreams_101.6cm_x_76.2cm_BIS.webp?rlkey=un9j2bd8l7i58rcth41xuk3un&st=cqeaw081&raw=1",
+        src: "https://www.dropbox.com/scl/fi/84dxkxicnb6pc7f1nh9c5/PIXELATED-DREAMS-120-BPM-C-minor.mp3?rlkey=b3q8vh19e0wqnj8a0yzpv95cs&st=38fqxkpp&raw=1",
+        links: { basic: "https://buy.stripe.com/6oUdR92VL0OSeaP5Ype7m0w", premium: "https://buy.stripe.com/6oU3cv7c17dg2s71I9e7m0x" }
+      },
+      { 
+        id: 10, name: "BUTTERFLY", genre: "R&B", bpm: 121, key: "C Major", 
+        image: "https://www.dropbox.com/scl/fi/qoa6vlq1x0zfhx40oov1a/dff66f3c5cbb31a45b909694e9ed8f26.jpg?rlkey=to2y0cec12ctmpiu975ezvq56&st=gesdwk8l&raw=1",
+        src: "https://www.dropbox.com/scl/fi/qmzsm3i9axrra1ztjsud0/Butterfly-121-BPM-C-Major.mp3?rlkey=x09zktmv44wsv9tfam1d4l3vz&st=kyx7g51q&raw=1",
+        links: { basic: "https://buy.stripe.com/dRmdR97c169cd6LcmNe7m0y", premium: "https://buy.stripe.com/28E6oH8g58hkgiX1I9e7m0z" }
+      }, 
+      { 
+        id: 11, name: "Summer nights", genre: "G-FUNK", bpm: 97, key: "D Minor", 
+        image: "https://www.dropbox.com/scl/fi/lng5bh27syq1wu5a7n2ox/0x1900-000000-80-0-0.jpg?rlkey=j9stktnmb6ku0xrphcw8fppdh&st=a8eshnig&raw=1",
+        src: "https://www.dropbox.com/scl/fi/dy2sysgzm9fhzdvvgke4o/SUMMER-NIGHTS-97-BPM-D-minor.mp3?rlkey=jm3u5gkcrgv39fntm1oiijlqi&st=wehra48m&raw=1",
+        links: { basic: "https://buy.stripe.com/bJe8wP0NDfJM5Ej2Mde7m0A", premium: "https://buy.stripe.com/7sY6oH9k9558feTfyZe7m0B" }
+      },
+      { 
+        id: 12, name: "DISCLOSURE", genre: "R&B", bpm: 98, key: "Eb Minor", 
+        image: "https://www.dropbox.com/scl/fi/bg6dh2m6qo20pv3e1bcnq/ab67616d0000b273e2f9df5c00476154a4fbdfff.jpg?rlkey=a8i2pl7kkhkwyt8i04rntubia&st=woytkthw&raw=1",
+        src: "https://www.dropbox.com/scl/fi/zo8hs0ls6fna75bomdvzi/DISCLOSURE-98-BPM-600cents.mp3?rlkey=zd80n2h7zboufw6fv060622a8&st=slciwieu&raw=1",
+        links: { basic: "https://buy.stripe.com/9B600j2VL69c8QvdqRe7m0C", premium: "https://buy.stripe.com/3cI14nfIx69cc2H9aBe7m0D" }
+      },
+      { 
+        id: 13, name: "STREET ARCADE", genre: "HOUSE", bpm: 125, key: "B Major", 
+        image: "https://www.dropbox.com/scl/fi/u6ivnb1vi2g6wz27uxtut/maxresdefault-2.jpg?rlkey=gsthmvyzyfarspuae6ii6fopy&st=rxwc30py&raw=1",
+        src: "https://www.dropbox.com/scl/fi/ynct668c28x7sc7pv7mag/STREET-ARCADE-125-BPM.mp3?rlkey=xt8itk0lytfiliebkt00ulnjr&st=ybwv7abu&raw=1",
+        links: { basic: "https://buy.stripe.com/4gM3cv3ZP2X0aYD4Ule7m0E", premium: "https://buy.stripe.com/28E5kD7c11SW0jZdqRe7m0F" }
+      }, 
+      { 
+        id: 14, name: "BOSSA TRAP", genre: "BOSSA NOVA", bpm: 95, key: "Ab Minor", 
+        image: "https://www.dropbox.com/scl/fi/y39dxd78009zqx1vpg3mj/ab6761610000f1788b18570eff245e2d3c48792e.jpg?rlkey=79svskcvy8tu699mgtulvmrkk&st=97ybihtb&raw=1",
+        src: "https://www.dropbox.com/scl/fi/hu9scam8hzrf8rd4fpxx5/Bossa-trap-95-BPM-Ab-minor.wav?rlkey=glmtri0v0yzpsit1m28zejdev&st=bilxnupq&raw=1",
+        links: { basic: "https://buy.stripe.com/4gM14n53T69c3wb86xe7m0G", premium: "https://buy.stripe.com/bJe7sLfIx1SWeaP86xe7m0H" }
+      },
+      { 
+        id: 15, name: "NUJABES", genre: "HIP-HOP", bpm: 93, key: "F Major", 
+        image: "https://www.dropbox.com/scl/fi/oy0p5wgw6md5pnadohws0/ab6761610000517457f19d2f179b00207bfb3155.jpg?rlkey=qzjkrk6bku1xwcz7bh5azcwgj&st=3ulzlfr5&raw=1",
+        src: "https://www.dropbox.com/scl/fi/klhwl58zx4oiqdorldukp/NUJABES-93-BPM.wav?rlkey=cd7qfo6uoo8mys7aq229wgk51&st=ba73398m&raw=1",
+        links: { basic: "https://buy.stripe.com/cNi5kD2VL69c1o33Qhe7m0I", premium: "https://buy.stripe.com/4gMbJ153TfJM7Mr1I9e7m0J" }
+      },
+      { 
+        id: 16, name: "MARY J", genre: "NEW JACK SWING", bpm: 93, key: "Ab Minor", 
+        image: "https://www.dropbox.com/scl/fi/3hmtobr9cmj14q4jbx0ns/Mary_J_Blige_album_cover_My_Life.jpg?rlkey=vyjutkyu1r60rnwyqi1eoe52m&st=vvarfxjc&raw=1",
+        src: "https://www.dropbox.com/scl/fi/hun2bxnlhq5u4wghv20cg/Mary-J-93-BPM-300-cents.mp3?rlkey=mgvad8vpxwpf51i4gvvd2ftxd&st=jeuhld3k&raw=1",
+        links: { basic: "https://buy.stripe.com/cNi28rfIx2X00jZgD3e7m0K", premium: "https://buy.stripe.com/6oU28r2VL7dg3wb2Mde7m0L" }
+      },
+      { 
+        id: 17, name: "NEON", genre: "NEO-SOUL", bpm: 86, key: "D Minor", 
+        image: "https://www.dropbox.com/scl/fi/omhu53fahwedfmu7lw3m2/thumb-1920-1012090.jpg?rlkey=tedyyngle3s43hflle816xafb&st=kxkano3x&raw=1",
+        src: "https://www.dropbox.com/scl/fi/bwgqgey698v7sg8todquk/NEON-86-BPM-1200-CENTSS.mp3?rlkey=107ruoxdno7kb3vjk0lsbi801&st=srsms0rd&raw=1",
+        links: { basic: "https://buy.stripe.com/6oU3cv1RHgNQfeTbiJe7m0M", premium: "https://buy.stripe.com/6oU00jaod2X0d6LaeFe7m0N" }
+      },
+      { 
+        id: 18, name: "BABY", genre: "G-FUNK", bpm: 95, key: "G Minor", 
+        image: "https://www.dropbox.com/scl/fi/pk5gnr2hahd20ekwzxsbk/artworks-000332931303-33ej8r-t500x500.jpg?rlkey=xg040oh5d4rotev8p62ba4c5c&st=bv6ubrd4&raw=1",
+        src: "https://www.dropbox.com/scl/fi/7bgg8v6po85knsea9kiqt/BABY-95-BPM.mp3?rlkey=3evdrd12yh862l8kjlq06sbe6&st=7kigj5dm&raw=1",
+        links: { basic: "https://buy.stripe.com/14A6oHdAp2X09Uz4Ule7m0O", premium: "https://buy.stripe.com/3cI28reEt0OSd6L4Ule7m0P" }
+      },
+      { 
+        id: 19, name: "CORAZON DE MIEL", genre: "R&B", bpm: 78, key: "Ab Major", 
+        image: "https://www.dropbox.com/scl/fi/2iegdm6jrvv94cin6w2ga/0643443241366_230.jpg?rlkey=sk6pxjbzqmxu6z48q2ryp7wgx&st=7jpk6t6p&raw=1",
+        src: "https://www.dropbox.com/scl/fi/icruf8518twkeiaj9elvq/CORAZON-DE-MIEL-78-BPM-600CENTS-Ab-Major.mp3?rlkey=ycenw275x1hfej7u678rcb33w&st=r6jemmwc&raw=1",
+        links: { basic: "https://buy.stripe.com/fZu00j1RH1SW0jZcmNe7m0Q", premium: "https://buy.stripe.com/5kQ5kD2VLbtwd6LgD3e7m0R" }
+      },
+      { 
+        id: 20, name: "SOL & ARENA", genre: "NEW JACK SWING", bpm: 108, key: "A Minor", 
+        image: "https://www.dropbox.com/scl/fi/bcs7wogk2yi6e2zi239rm/ab67616d0000b273780268564c65ca302786e6ff.jpg?rlkey=9agl8o04aclram1h32sskxi7x&st=ska24kek&raw=1",
+        src: "https://www.dropbox.com/scl/fi/6jx77dggi2adtz75aybfe/SOL-108.mp3?rlkey=hp06ahrnxx0joqtdc2nlu81bq&st=z0u42kz0&raw=1",
+        links: { basic: "https://buy.stripe.com/9B64gz53TfJMfeTgD3e7m0S", premium: "https://buy.stripe.com/00w5kD9k99lo5Ej72te7m0T" }
+      },
+      
     ];
 
     let favBeats = JSON.parse(localStorage.getItem('sadboi_favs')) || [];
     let currentGenre = 'ALL';
     let currentSearch = '';
     let showFavsOnly = false;
+    
+    let currentPage = 1;
+    const itemsPerPage = 5;
+    let totalPages = 1;
 
     const audio = document.getElementById('audioEl');
     const playerEl = document.getElementById('sticky-player');
@@ -836,47 +869,53 @@
     const playerImage = document.getElementById('playerImage');
     const playerCoverContainer = document.getElementById('playerCoverContainer');
 
-    const PLAY_SVG = '<polygon points="5,3 19,12 5,21"/>';
-    const PAUSE_SVG = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+    const PLAY_SVG = '<svg viewBox="0 0 24 24" class="w-3 h-3 fill-current"><polygon points="5,3 19,12 5,21"/></svg>';
+    const PAUSE_SVG = '<svg viewBox="0 0 24 24" class="w-3 h-3 fill-current"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
+    const PLAYER_PLAY_RAW = '<polygon points="5,3 19,12 5,21" />';
+    const PLAYER_PAUSE_RAW = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
     const HEART_SVG = '<svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>';
 
     let currentBeat = null;
     let isPlaying = false;
 
-    let audioCtx, analyser, dataArray, canvasCtx;
     const visualizerCanvas = document.getElementById('visualizerCanvas');
-
-    function initAudioVisualizer() {
-      console.warn("Visualizador desactivado temporalmente para streaming directo.");
-      return; 
-    }
+    const canvasCtx = visualizerCanvas.getContext('2d');
+    let fakeBars = Array(12).fill(0).map(() => Math.random() * 20);
 
     function drawVisualizer() {
       requestAnimationFrame(drawVisualizer);
-      if(!isPlaying) return; 
+      if (!canvasCtx) return;
       
-      analyser.getByteFrequencyData(dataArray);
       canvasCtx.clearRect(0, 0, visualizerCanvas.width, visualizerCanvas.height);
-      
-      const barWidth = (visualizerCanvas.width / dataArray.length) * 1.5;
+      const barWidth = visualizerCanvas.width / fakeBars.length - 2;
       let x = 0;
-      
-      for(let i = 0; i < dataArray.length; i++) {
-        const barHeight = (dataArray[i] / 255) * visualizerCanvas.height;
+
+      for (let i = 0; i < fakeBars.length; i++) {
+        if (isPlaying) {
+          let target = Math.random() * visualizerCanvas.height;
+          fakeBars[i] += (target - fakeBars[i]) * 0.22; 
+        } else {
+          fakeBars[i] += (0 - fakeBars[i]) * 0.15;
+        }
+
         canvasCtx.fillStyle = '#888888';
-        canvasCtx.fillRect(x, visualizerCanvas.height - barHeight, barWidth, barHeight);
-        x += barWidth + 1;
+        canvasCtx.fillRect(x, visualizerCanvas.height - fakeBars[i], barWidth, fakeBars[i]);
+        x += barWidth + 2;
       }
     }
 
+    drawVisualizer();
+
     function handleFilter() {
       currentSearch = document.getElementById('searchInput').value.toLowerCase();
+      currentPage = 1; 
       renderBeats();
     }
 
     function setGenreFilter(genre) {
       currentGenre = genre;
       showFavsOnly = false;
+      currentPage = 1;
       document.getElementById('favFilterBtn').classList.remove('active');
       document.querySelectorAll('.filter-tag[data-genre]').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.genre === genre);
@@ -886,6 +925,7 @@
 
     function toggleFavFilter() {
       showFavsOnly = !showFavsOnly;
+      currentPage = 1;
       document.getElementById('favFilterBtn').classList.toggle('active', showFavsOnly);
       if(showFavsOnly) {
         document.querySelectorAll('.filter-tag[data-genre]').forEach(b => b.classList.remove('active'));
@@ -906,6 +946,11 @@
       renderBeats();
     }
 
+    function changePage(direction) {
+      currentPage += direction;
+      renderBeats();
+    }
+
     function renderBeats() {
       const container = document.getElementById('beatListContainer');
       container.innerHTML = '';
@@ -917,56 +962,89 @@
         return matchesSearch && matchesGenre && matchesFav;
       });
 
-      // CORRECCIÓN: Orden alfabético por nombre
       filtered.sort((a, b) => a.name.localeCompare(b.name));
 
+      totalPages = Math.ceil(filtered.length / itemsPerPage) || 1;
+      if (currentPage > totalPages) currentPage = totalPages;
+
+      document.getElementById('carouselIndicator').innerText = `PAGE ${currentPage} OF ${totalPages}`;
+      document.getElementById('prevPageBtn').disabled = currentPage === 1;
+      document.getElementById('nextPageBtn').disabled = currentPage === totalPages;
+
       if(filtered.length === 0) {
-        container.innerHTML = `<tr><td colspan="7" class="text-center py-8 text-[#444] font-mono text-xs tracking-widest">NO BEATS FOUND</td></tr>`;
+        container.style.gridTemplateColumns = '1fr';
+        container.innerHTML = `<div class="text-center py-16 text-[#444] font-mono text-xs tracking-widest w-full">NO BEATS FOUND</div>`;
         return;
       }
 
-      filtered.forEach((beat, index) => {
-        const isFav = favBeats.includes(beat.id);
-        const tr = document.createElement('tr');
-        tr.className = `beat-row ${currentBeat === beat.id ? 'active' : ''}`;
-        tr.onclick = () => selectBeat(beat.id);
+      if (window.innerWidth > 768) {
+        container.style.gridTemplateColumns = 'repeat(5, minmax(200px, 1fr))';
+      } else {
+        container.style.gridTemplateColumns = '1fr';
+      }
 
-        tr.innerHTML = `
-          <td><div class="beat-num">${(index + 1).toString().padStart(2, '0')}</div></td>
-          <td>
-            <button class="play-btn ${currentBeat === beat.id && isPlaying ? 'playing' : ''}" id="playBtn${beat.id}" onclick="event.stopPropagation(); togglePlay(${beat.id})">
-              <svg viewBox="0 0 24 24">${currentBeat === beat.id && isPlaying ? PAUSE_SVG : PLAY_SVG}</svg>
-            </button>
-          </td>
-          <td>
-            <button class="fav-btn ${isFav ? 'active' : ''}" onclick="toggleFav(event, ${beat.id})">
-              ${HEART_SVG}
-            </button>
-          </td>
-          <td>
-            <div style="display:flex; align-items:center; gap:16px;">
-              <img src="${beat.image}" loading="lazy" style="width:44px; height:44px; border-radius:4px; object-fit:cover; border:1px solid #1f1f1f;">
-              <div>
-                <div class="beat-name">${beat.name}</div>
-                <div class="beat-genre">${beat.genre}</div>
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const paginatedItems = filtered.slice(startIndex, startIndex + itemsPerPage);
+
+      paginatedItems.forEach((beat) => {
+        const isFav = favBeats.includes(beat.id);
+        const isCurrentBeatPlaying = (currentBeat === beat.id && isPlaying);
+        
+        const card = document.createElement('div');
+        card.className = `beat-card-h ${currentBeat === beat.id ? 'active' : ''}`;
+        card.onclick = () => selectBeat(beat.id);
+
+        // Extracción limpia para los badges flotantes
+        const cleanKey = beat.key.split(' ')[0];
+        const cleanScale = beat.key.split(' ')[1] ? beat.key.split(' ')[1].substring(0, 3).toUpperCase() : '';
+
+        card.innerHTML = `
+          <div>
+            <div class="beat-card-top relative">
+              <div class="absolute top-2 left-2 bg-black/70 backdrop-blur-md text-[#f0f0f0] font-mono text-[9px] px-1.5 py-0.5 rounded border border-[#1f1f1f] tracking-wider z-[1]">
+                ${beat.bpm} <span class="text-[#888] text-[8px]">BPM</span>
+              </div>
+              <div class="absolute top-2 right-2 bg-black/70 backdrop-blur-md text-[#f0f0f0] font-mono text-[9px] px-1.5 py-0.5 rounded border border-[#1f1f1f] tracking-wider z-[1]">
+                ${cleanKey}<span class="text-[#888] text-[8px] ml-0.5">${cleanScale}</span>
+              </div>
+              
+              <img src="${beat.image}" loading="lazy" class="w-full aspect-square object-cover rounded border border-[#1f1f1f]">
+              <div class="beat-card-actions-overlay">
+                <button class="play-btn ${isCurrentBeatPlaying ? 'playing' : ''}" onclick="event.stopPropagation(); togglePlay(${beat.id})">
+                  ${isCurrentBeatPlaying ? PAUSE_SVG : PLAY_SVG}
+                </button>
+                <button class="fav-btn ${isFav ? 'active' : ''}" onclick="toggleFav(event, ${beat.id})">
+                  ${HEART_SVG}
+                </button>
               </div>
             </div>
-          </td>
-          <td><div class="beat-meta">${beat.bpm}<span>BPM</span></div></td>
-          <td><div class="beat-meta">${beat.key}<span>KEY</span></div></td>
-          <td style="text-align:right">
-            <button class="buy-btn" onclick="event.stopPropagation(); openBuyModal(${beat.id})">BUY / LEASE</button>
-          </td>
+            <div>
+              <div class="beat-name truncate">${beat.name}</div>
+              <div class="beat-genre mb-3">${beat.genre}</div>
+            </div>
+          </div>
+          <div class="mt-2">
+            <button class="buy-btn w-full text-center" onclick="event.stopPropagation(); openBuyModal(${beat.id})">BUY / LEASE</button>
+          </div>
         `;
-        container.appendChild(tr);
+        container.appendChild(card);
       });
     }
+
+    window.addEventListener('resize', () => {
+      const container = document.getElementById('beatListContainer');
+      if(container && container.children.length > 0 && !container.innerHTML.includes("NO BEATS")) {
+        if (window.innerWidth > 768) {
+          container.style.gridTemplateColumns = 'repeat(5, minmax(200px, 1fr))';
+        } else {
+          container.style.gridTemplateColumns = '1fr';
+        }
+      }
+    });
 
     function selectBeat(id) {
       const beat = beats.find(b => b.id === id);
       if(!beat || !beat.src) { alert("Audio not available for this beat yet."); return;}
-      
-      initAudioVisualizer();
 
       if (currentBeat !== id) {
         currentBeat = id;
@@ -990,12 +1068,12 @@
       if (playAttempt !== undefined) {
         playAttempt.then(() => {
           isPlaying = true;
-          playerIcon.innerHTML = PAUSE_SVG;
+          playerIcon.innerHTML = PLAYER_PAUSE_RAW;
           renderBeats();
-          if(audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
-        }).catch(() => {
+        }).catch((error) => {
+          console.error("Error al reproducir audio directo de Dropbox:", error);
           isPlaying = false;
-          playerIcon.innerHTML = PLAY_SVG;
+          playerIcon.innerHTML = PLAYER_PLAY_RAW;
           renderBeats();
         });
       }
@@ -1005,7 +1083,7 @@
       if (currentBeat === id && isPlaying) {
         audio.pause();
         isPlaying = false;
-        playerIcon.innerHTML = PLAY_SVG;
+        playerIcon.innerHTML = PLAYER_PLAY_RAW;
         renderBeats();
       } else {
         selectBeat(id);
@@ -1033,7 +1111,7 @@
       document.getElementById('timeElapsed').textContent = formatTime(audio.currentTime);
       document.getElementById('timeDuration').textContent = formatTime(audio.duration);
     });
-    audio.addEventListener('ended', () => { isPlaying = false; playerIcon.innerHTML = PLAY_SVG; renderBeats(); progressFill.style.width = '0%'; });
+    audio.addEventListener('ended', () => { isPlaying = false; playerIcon.innerHTML = PLAYER_PLAY_RAW; renderBeats(); progressFill.style.width = '0%'; });
     
     function setVolume(v) { audio.volume = parseFloat(v); }
     function seekTo(e) { if (!audio.duration) return; const rect = document.getElementById('progressWrap').getBoundingClientRect(); audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration; }
@@ -1069,7 +1147,7 @@
       }
     }
 
-    function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
+    toggleMenu = () => { document.getElementById('mobile-menu').classList.toggle('open'); }
 
     const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
