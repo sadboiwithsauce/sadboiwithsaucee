@@ -210,8 +210,9 @@
       flex-wrap: wrap; gap: 16px; margin-bottom: 24px;
     }
     
+    /* MODIFICADO: Buscador con más contraste y borde inicial claro */
     .search-box {
-      background: var(--card); border: 1px solid var(--border); border-radius: 3px;
+      background: #141414; border: 1px solid var(--border-bright); border-radius: 3px;
       padding: 10px 16px; font-size: 11px; color: var(--text-primary);
       font-family: 'JetBrains Mono', monospace; width: 100%; max-width: 300px; outline: none;
     }
@@ -229,17 +230,15 @@
 
     #beats { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     
-    /* ESTILOS LISTA HORIZONTAL */
-    .beats-carousel-container {
+    .beats-vertical-container {
       position: relative;
       width: 100%;
-      overflow: hidden;
       margin-bottom: 20px;
     }
-    .beats-horizontal-list {
+    .beats-vertical-grid {
       display: grid;
-      grid-template-columns: repeat(5, minmax(200px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
       transition: opacity 0.3s ease;
     }
     .beat-card-h {
@@ -265,6 +264,8 @@
       position: relative;
       margin-bottom: 14px;
     }
+
+    /* MODIFICADO: El overlay se mantiene fijo y visible en pantallas táctiles de manera nativa */
     .beat-card-actions-overlay {
       position: absolute;
       inset: 0;
@@ -281,41 +282,28 @@
     .beat-card-top:hover .beat-card-actions-overlay {
       opacity: 1;
     }
-    .carousel-nav-controls {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 16px;
-      margin-top: 24px;
+
+    /* MODIFICADO: Estilos para el micro-ecualizador animado en la tarjeta activa */
+    .mini-equalizer {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 2px;
+      width: 12px;
+      height: 10px;
+      margin-left: 6px;
     }
-    .carousel-btn {
-      background: transparent;
-      border: 1px solid var(--border-bright);
-      color: var(--text-primary);
-      width: 36px;
-      height: 36px;
-      border-radius: 3px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s ease;
-      font-family: 'JetBrains Mono', monospace;
+    .mini-equalizer span {
+      width: 2px;
+      height: 100%;
+      background-color: var(--text-primary);
+      animation: miniEq 0.8s ease-in-out infinite alternate;
+      transform-origin: bottom;
     }
-    .carousel-btn:hover:not(:disabled) {
-      background: var(--text-primary);
-      color: var(--bg);
-      border-color: var(--text-primary);
-    }
-    .carousel-btn:disabled {
-      opacity: 0.2;
-      cursor: not-allowed;
-    }
-    .carousel-indicator {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      color: var(--text-muted);
-      letter-spacing: 0.1em;
+    .mini-equalizer span:nth-child(2) { animation-delay: 0.2s; }
+    .mini-equalizer span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes miniEq {
+      0% { transform: scaleY(0.2); }
+      100% { transform: scaleY(1); }
     }
 
     .play-btn {
@@ -337,7 +325,7 @@
     .fav-btn svg { width: 16px; height: 16px; fill: currentColor; }
 
     .beat-name { font-size: 14px; font-weight: 700; color: var(--text-primary); letter-spacing: 0.01em; }
-    .beat-genre { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-muted); letter-spacing: 0.1em; margin-top: 3px; }
+    .beat-genre { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-muted); letter-spacing: 0.1em; margin-top: 3px; display: flex; align-items: center; }
 
     .buy-btn {
       font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
@@ -374,12 +362,12 @@
     .contact-form { display: flex; flex-direction: column; gap: 14px; }
     .form-field { background: var(--card); border: 1px solid var(--border); border-radius: 3px; padding: 14px 16px; font-size: 13px; color: var(--text-primary); font-family: 'Montserrat', sans-serif; outline: none; transition: border-color 0.2s; resize: none; }
     .form-field:focus { border-color: var(--border-bright); }
+    .form-field:focus { border-color: var(--border-bright); }
     .form-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; font-family: 'JetBrains Mono', monospace; }
     .contact-info { display: flex; flex-direction: column; gap: 28px; }
     .contact-item h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; margin-bottom: 6px; }
     .contact-item p { font-size: 14px; color: var(--text-secondary); }
 
-    /* FOOTER MEJORADO */
     footer { 
       border-top: 1px solid var(--border); 
       padding: 32px 24px; 
@@ -433,9 +421,21 @@
       .nav-links { display: none; }
       #hamburger { display: flex; }
       .hero-title { font-size: 32px; line-height: 1.1; word-wrap: break-word; }
-      .beats-horizontal-list {
+      .beats-vertical-grid {
         grid-template-columns: 1fr;
       }
+      /* MODIFICADO: Forzar visibilidad del overlay sin necesidad de hover en dispositivos móviles */
+      .beat-card-actions-overlay {
+        opacity: 1;
+        background: rgba(0,0,0,0.2);
+        justify-content: flex-end;
+        align-items: flex-start;
+        padding: 10px;
+        gap: 8px;
+      }
+      .play-btn { background: rgba(0, 0, 0, 0.7); border-color: rgba(255,255,255,0.2); }
+      .fav-btn { background: rgba(0, 0, 0, 0.7); border-radius: 50%; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; }
+      
       .buy-btn { width: 100%; padding: 12px; text-align: center; }
       .license-grid, .services-grid { grid-template-columns: 1fr; gap: 12px; background: transparent; border: none; }
       .license-card, .service-card { padding: 24px 20px; border: 1px solid var(--border); border-radius: 4px; }
@@ -448,7 +448,7 @@
       .player-cover { width: 36px; height: 36px; }
     }
 
-    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
@@ -508,13 +508,14 @@
       </div>
 
       <div class="filter-container fade-in">
-        <input type="text" id="searchInput" class="search-box" placeholder="Search by name..." oninput="handleFilter()" />
+        <input type="text" id="searchInput" class="search-box" placeholder="🔍 Search by name..." oninput="handleFilter()" />
         <div class="filter-tags" id="filterTags">
           <button class="filter-tag active" data-genre="ALL" onclick="setGenreFilter('ALL')">ALL</button>
           <button class="filter-tag" data-genre="R&B" onclick="setGenreFilter('R&B')">R&B</button>
           <button class="filter-tag" data-genre="AFROBEAT" onclick="setGenreFilter('AFROBEAT')">AFROBEAT</button>
           <button class="filter-tag" data-genre="NEW JACK SWING" onclick="setGenreFilter('NEW JACK SWING')">NEW JACK SWING</button>
           <button class="filter-tag" data-genre="G-FUNK" onclick="setGenreFilter('G-FUNK')">G-FUNK</button>
+          <button class="filter-tag" data-genre="MODERN FUNK" onclick="setGenreFilter('MODERN FUNK')">MODERN FUNK</button>
           <button class="filter-tag" data-genre="HOUSE" onclick="setGenreFilter('HOUSE')">HOUSE</button>
           <button class="filter-tag" data-genre="PLUGGNB" onclick="setGenreFilter('PLUGGNB')">PLUGGNB</button>
           <button class="filter-tag" data-genre="BOSSA NOVA" onclick="setGenreFilter('BOSSA NOVA')">BOSSA NOVA</button>
@@ -524,15 +525,8 @@
         </div>
       </div>
 
-      <div class="fade-in beats-carousel-container">
-        <div class="beats-horizontal-list" id="beatListContainer">
-          </div>
-        
-        <div class="carousel-nav-controls">
-          <span class="carousel-indicator" id="carouselIndicator">PAGE 1 OF 1</span>
-          <button class="carousel-btn" id="prevPageBtn" onclick="changePage(-1)" disabled>←</button>
-          <button class="carousel-btn" id="nextPageBtn" onclick="changePage(1)" disabled>→</button>
-        </div>
+      <div class="fade-in beats-vertical-container">
+        <div class="beats-vertical-grid" id="beatListContainer"></div>
       </div>
     </div>
   </section>
@@ -590,9 +584,9 @@
         <div class="section-sep"></div>
       </div>
       <div class="services-grid fade-in">
-        <div class="service-card"><div class="service-icon">🎹</div><div class="service-name">Custom Beats</div><div class="service-desc">Beats created from scratch.</div><div class="service-price">from $90 USD</div></div>
-        <div class="service-card"><div class="service-icon">🎚️</div><div class="service-name">Mixing</div><div class="service-desc">Professional mixing for your song.</div><div class="service-price">from $80 USD / track</div></div>
-        <div class="service-card"><div class="service-icon">💿</div><div class="service-name">Mastering</div><div class="service-desc">Ready for Spotify & Apple Music.</div><div class="service-price">from $50 USD / track</div></div>
+        <div class="service-card"><div class="service-icon">🎹</div><div class="service-name">Custom Beats</div><div class="service-desc">Beats created from scratch.</div><div class="service-price font-mono text-xs">from $90 USD</div></div>
+        <div class="service-card"><div class="service-icon">🎚️</div><div class="service-name">Mixing</div><div class="service-desc">Professional mixing for your song.</div><div class="service-price font-mono text-xs">from $80 USD / track</div></div>
+        <div class="service-card"><div class="service-icon">💿</div><div class="service-name">Mastering</div><div class="service-desc">Ready for Spotify & Apple Music.</div><div class="service-price font-mono text-xs">from $50 USD / track</div></div>
       </div>
     </div>
   </section>
@@ -790,7 +784,7 @@
         links: { basic: "https://buy.stripe.com/dRmdR97c169cd6LcmNe7m0y", premium: "https://buy.stripe.com/28E6oH8g58hkgiX1I9e7m0z" }
       }, 
       { 
-        id: 11, name: "Summer nights", genre: "G-FUNK", bpm: 97, key: "D Minor", 
+        id: 11, name: "Summer nights", genre: "MODERN FUNK", bpm: 97, key: "D Minor", 
         image: "https://www.dropbox.com/scl/fi/lng5bh27syq1wu5a7n2ox/0x1900-000000-80-0-0.jpg?rlkey=j9stktnmb6ku0xrphcw8fppdh&st=a8eshnig&raw=1",
         src: "https://www.dropbox.com/scl/fi/dy2sysgzm9fhzdvvgke4o/SUMMER-NIGHTS-97-BPM-D-minor.mp3?rlkey=jm3u5gkcrgv39fntm1oiijlqi&st=wehra48m&raw=1",
         links: { basic: "https://buy.stripe.com/bJe8wP0NDfJM5Ej2Mde7m0A", premium: "https://buy.stripe.com/7sY6oH9k9558feTfyZe7m0B" }
@@ -832,7 +826,7 @@
         links: { basic: "https://buy.stripe.com/6oU3cv1RHgNQfeTbiJe7m0M", premium: "https://buy.stripe.com/6oU00jaod2X0d6LaeFe7m0N" }
       },
       { 
-        id: 18, name: "BABY", genre: "G-FUNK", bpm: 95, key: "G Minor", 
+        id: 18, name: "BABY", genre: "MODERN FUNK", bpm: 95, key: "G Minor", 
         image: "https://www.dropbox.com/scl/fi/pk5gnr2hahd20ekwzxsbk/artworks-000332931303-33ej8r-t500x500.jpg?rlkey=xg040oh5d4rotev8p62ba4c5c&st=bv6ubrd4&raw=1",
         src: "https://www.dropbox.com/scl/fi/7bgg8v6po85knsea9kiqt/BABY-95-BPM.mp3?rlkey=3evdrd12yh862l8kjlq06sbe6&st=7kigj5dm&raw=1",
         links: { basic: "https://buy.stripe.com/14A6oHdAp2X09Uz4Ule7m0O", premium: "https://buy.stripe.com/3cI28reEt0OSd6L4Ule7m0P" }
@@ -850,7 +844,7 @@
         links: { basic: "https://buy.stripe.com/9B64gz53TfJMfeTgD3e7m0S", premium: "https://buy.stripe.com/00w5kD9k99lo5Ej72te7m0T" }
       },
       { 
-        id: 21, name: "BLUE TIME", genre: "R&B", bpm: 93, key: "E Minor", 
+        id: 21, name: "BLUE TIME", genre: "MODERN FUNK", bpm: 93, key: "E Minor", 
         image: "https://www.dropbox.com/scl/fi/i6loj73g2dk2mptddq8tx/360_F_307682467_VPS9osifj30F3TPTOakQVmnoJFM8px6B.jpg?rlkey=ccxptmttna7biyzm3gdoah8kf&st=hwikisu2&raw=1",
         src: "https://www.dropbox.com/scl/fi/erc5bpf5o7cr3s2angcja/BLUE-TIME-93-BPM.mp3?rlkey=8grxvqxjjrcm8ijbhdv8di0qp&st=iml8nrh4&raw=1",          
         links: { basic: "https://buy.stripe.com/5kQ14n1RH414giXdqRe7m0U", premium: "https://buy.stripe.com/3cI4gz3ZPdBE9Uz4Ule7m0V" }
@@ -860,18 +854,19 @@
         image: "https://www.dropbox.com/scl/fi/fmyp73br1hzaolzk7zuss/320x320.jpg?rlkey=sw1y9spnkh5oxgovodws2f8nu&st=4r9acvc8&raw=1",
         src: "https://www.dropbox.com/scl/fi/leae1suku25vzho3mpaua/STAY-WITH-ME.mp3?rlkey=w0orb1puv3ljh4a8z2zls0wbn&st=907qnmss&raw=1",          
         links: { basic: "https://buy.stripe.com/dRm4gzeEteFIaYD1I9e7m0Z", premium: "https://buy.stripe.com/eVqaEX0ND1SWc2HeuVe7m10" }
-      }
-      
+      },
+      {
+        id: 23, name: "PHARREL VIBE", genre: "R&B", bpm: 94, key: "F Minor", 
+        image: "https://www.dropbox.com/scl/fi/mrpom7j6iaamctx8yi0kn/pharrell-1-inmy.webp?rlkey=q1r6otuh1fwayvxufcy8tdx5m&st=ww7rdamd&raw=1",
+        src: "https://www.dropbox.com/scl/fi/8y7go5l25my1iiunyk9br/PHARREL-VIBE_94_BPM_F_MINOR.mp3?rlkey=kvn7to2cu4msrmzli0mg0cduc&st=33318fq9&raw=1",          
+        links: { basic: "https://buy.stripe.com/4gM4gz2VLbtw5EjgD3e7m11", premium: "https://buy.stripe.com/00w3cveEteFIfeT0E5e7m12" }
+      }                    
     ];
 
     let favBeats = JSON.parse(localStorage.getItem('sadboi_favs')) || [];
     let currentGenre = 'ALL';
     let currentSearch = '';
     let showFavsOnly = false;
-    
-    let currentPage = 1;
-    const itemsPerPage = 5;
-    let totalPages = 1;
 
     const audio = document.getElementById('audioEl');
     const playerEl = document.getElementById('sticky-player');
@@ -920,14 +915,12 @@
 
     function handleFilter() {
       currentSearch = document.getElementById('searchInput').value.toLowerCase();
-      currentPage = 1; 
       renderBeats();
     }
 
     function setGenreFilter(genre) {
       currentGenre = genre;
       showFavsOnly = false;
-      currentPage = 1;
       document.getElementById('favFilterBtn').classList.remove('active');
       document.querySelectorAll('.filter-tag[data-genre]').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.genre === genre);
@@ -937,7 +930,6 @@
 
     function toggleFavFilter() {
       showFavsOnly = !showFavsOnly;
-      currentPage = 1;
       document.getElementById('favFilterBtn').classList.toggle('active', showFavsOnly);
       if(showFavsOnly) {
         document.querySelectorAll('.filter-tag[data-genre]').forEach(b => b.classList.remove('active'));
@@ -958,11 +950,6 @@
       renderBeats();
     }
 
-    function changePage(direction) {
-      currentPage += direction;
-      renderBeats();
-    }
-
     function renderBeats() {
       const container = document.getElementById('beatListContainer');
       container.innerHTML = '';
@@ -974,31 +961,14 @@
         return matchesSearch && matchesGenre && matchesFav;
       });
 
-      filtered.sort((a, b) => a.name.localeCompare(b.name));
-
-      totalPages = Math.ceil(filtered.length / itemsPerPage) || 1;
-      if (currentPage > totalPages) currentPage = totalPages;
-
-      document.getElementById('carouselIndicator').innerText = `PAGE ${currentPage} OF ${totalPages}`;
-      document.getElementById('prevPageBtn').disabled = currentPage === 1;
-      document.getElementById('nextPageBtn').disabled = currentPage === totalPages;
+      filtered.sort((a, b) => b.id - a.id);
 
       if(filtered.length === 0) {
-        container.style.gridTemplateColumns = '1fr';
         container.innerHTML = `<div class="text-center py-16 text-[#444] font-mono text-xs tracking-widest w-full">NO BEATS FOUND</div>`;
         return;
       }
 
-      if (window.innerWidth > 768) {
-        container.style.gridTemplateColumns = 'repeat(5, minmax(200px, 1fr))';
-      } else {
-        container.style.gridTemplateColumns = '1fr';
-      }
-
-      const startIndex = (currentPage - 1) * itemsPerPage;
-      const paginatedItems = filtered.slice(startIndex, startIndex + itemsPerPage);
-
-      paginatedItems.forEach((beat) => {
+      filtered.forEach((beat) => {
         const isFav = favBeats.includes(beat.id);
         const isCurrentBeatPlaying = (currentBeat === beat.id && isPlaying);
         
@@ -1006,9 +976,11 @@
         card.className = `beat-card-h ${currentBeat === beat.id ? 'active' : ''}`;
         card.onclick = () => selectBeat(beat.id);
 
-        // Extracción limpia para los badges flotantes
         const cleanKey = beat.key.split(' ')[0];
         const cleanScale = beat.key.split(' ')[1] ? beat.key.split(' ')[1].substring(0, 3).toUpperCase() : '';
+
+        // MODIFICADO: Estructura interna con micro-ecualizador inyectado dinámicamente si el beat suena
+        const eqHtml = isCurrentBeatPlaying ? `<div class="mini-equalizer"><span></span><span></span><span></span></div>` : '';
 
         card.innerHTML = `
           <div>
@@ -1032,27 +1004,18 @@
             </div>
             <div>
               <div class="beat-name truncate">${beat.name}</div>
-              <div class="beat-genre mb-3">${beat.genre}</div>
+              <div class="beat-genre mb-3">${beat.genre} ${eqHtml}</div>
             </div>
           </div>
           <div class="mt-2">
-            <button class="buy-btn w-full text-center" onclick="event.stopPropagation(); openBuyModal(${beat.id})">BUY / LEASE</button>
+            <button class="buy-btn w-full text-center" onclick="event.stopPropagation(); openBuyModal(${beat.id})">BUY / $29+</button>
           </div>
         `;
         container.appendChild(card);
       });
+      
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     }
-
-    window.addEventListener('resize', () => {
-      const container = document.getElementById('beatListContainer');
-      if(container && container.children.length > 0 && !container.innerHTML.includes("NO BEATS")) {
-        if (window.innerWidth > 768) {
-          container.style.gridTemplateColumns = 'repeat(5, minmax(200px, 1fr))';
-        } else {
-          container.style.gridTemplateColumns = '1fr';
-        }
-      }
-    });
 
     function selectBeat(id) {
       const beat = beats.find(b => b.id === id);
@@ -1161,7 +1124,17 @@
 
     toggleMenu = () => { document.getElementById('mobile-menu').classList.toggle('open'); }
 
-    const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
+    /* MODIFICADO: Observer bidireccional fluido */
+    const observer = new IntersectionObserver((entries) => { 
+      entries.forEach(e => { 
+        if (e.isIntersecting) {
+          e.target.classList.add('visible'); 
+        } else {
+          e.target.classList.remove('visible');
+        }
+      }); 
+    }, { threshold: 0.1 });
+    
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     window.addEventListener('DOMContentLoaded', renderBeats);
   </script>
