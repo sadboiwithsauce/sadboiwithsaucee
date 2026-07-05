@@ -210,7 +210,6 @@
       flex-wrap: wrap; gap: 16px; margin-bottom: 24px;
     }
     
-    /* MODIFICADO: Buscador con más contraste y borde inicial claro */
     .search-box {
       background: #141414; border: 1px solid var(--border-bright); border-radius: 3px;
       padding: 10px 16px; font-size: 11px; color: var(--text-primary);
@@ -265,7 +264,6 @@
       margin-bottom: 14px;
     }
 
-    /* MODIFICADO: El overlay se mantiene fijo y visible en pantallas táctiles de manera nativa */
     .beat-card-actions-overlay {
       position: absolute;
       inset: 0;
@@ -283,7 +281,6 @@
       opacity: 1;
     }
 
-    /* MODIFICADO: Estilos para el micro-ecualizador animado en la tarjeta activa */
     .mini-equalizer {
       display: inline-flex;
       align-items: flex-end;
@@ -362,7 +359,6 @@
     .contact-form { display: flex; flex-direction: column; gap: 14px; }
     .form-field { background: var(--card); border: 1px solid var(--border); border-radius: 3px; padding: 14px 16px; font-size: 13px; color: var(--text-primary); font-family: 'Montserrat', sans-serif; outline: none; transition: border-color 0.2s; resize: none; }
     .form-field:focus { border-color: var(--border-bright); }
-    .form-field:focus { border-color: var(--border-bright); }
     .form-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; font-family: 'JetBrains Mono', monospace; }
     .contact-info { display: flex; flex-direction: column; gap: 28px; }
     .contact-item h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; margin-bottom: 6px; }
@@ -421,18 +417,22 @@
       .nav-links { display: none; }
       #hamburger { display: flex; }
       .hero-title { font-size: 32px; line-height: 1.1; word-wrap: break-word; }
+      
       .beats-vertical-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+        display: grid !important;
+        opacity: 1 !important;
       }
-      /* MODIFICADO: Forzar visibilidad del overlay sin necesidad de hover en dispositivos móviles */
-      .beat-card-actions-overlay {
-        opacity: 1;
+      
+      .beat-card-h .beat-card-actions-overlay {
+        opacity: 1 !important;
         background: rgba(0,0,0,0.2);
         justify-content: flex-end;
         align-items: flex-start;
         padding: 10px;
         gap: 8px;
       }
+      
       .play-btn { background: rgba(0, 0, 0, 0.7); border-color: rgba(255,255,255,0.2); }
       .fav-btn { background: rgba(0, 0, 0, 0.7); border-radius: 50%; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; }
       
@@ -525,7 +525,7 @@
         </div>
       </div>
 
-      <div class="fade-in beats-vertical-container">
+      <div class="beats-vertical-container">
         <div class="beats-vertical-grid" id="beatListContainer"></div>
       </div>
     </div>
@@ -754,12 +754,6 @@
          links: { basic: "https://buy.stripe.com/fZu14naodaps1o386xe7m0o", premium: "https://buy.stripe.com/00waEX3ZPgNQ7MrgD3e7m0p" }
       },
       { 
-        id: 6, name: "RADIO FUTURE", genre: "HOUSE", bpm: 98, key: "G Minor", 
-        image: "https://www.dropbox.com/scl/fi/fzpjqsayxhaej8ctkphun/jsrf-1649610520305.webp?rlkey=1mfr899dq7tmsyt090mau3yvt&st=di601pjp&raw=1",
-        src: "https://www.dropbox.com/scl/fi/1wytbcw9i2ub9fsk82c9m/RADIO-FUTURE-120-BPM-G-MINOR.mp3?rlkey=whgx05k0urolut1gl4tczm5vn&st=7zxx3066&raw=1",
-        links: { basic: "https://buy.stripe.com/5kQ4gzeEt9lo6InbiJe7m0q", premium: "https://buy.stripe.com/eVq4gz1RH7dg2s79aBe7m0r" }
-      },
-      { 
         id: 7, name: "MIDNIGHT", genre: "NEW JACK SWING", bpm: 105, key: "F Minor", 
         image: "https://www.dropbox.com/scl/fi/hyquat8kyraq3h13lvwcp/midnight-vaporwave-2880x1800-16113.jpg?rlkey=twgi4k01t4zf5ipqotyvi3sl8&st=r6wvlq9i&raw=1",
         src: "https://www.dropbox.com/scl/fi/pu2s7a1oqvcagp7fzfi06/MIDNIGTH-105-BPM.mp3?rlkey=tb8lebs9x4lghmo6wayxvipds&st=m0th0gjj&raw=1",
@@ -855,7 +849,7 @@
         src: "https://www.dropbox.com/scl/fi/leae1suku25vzho3mpaua/STAY-WITH-ME.mp3?rlkey=w0orb1puv3ljh4a8z2zls0wbn&st=907qnmss&raw=1",          
         links: { basic: "https://buy.stripe.com/dRm4gzeEteFIaYD1I9e7m0Z", premium: "https://buy.stripe.com/eVqaEX0ND1SWc2HeuVe7m10" }
       },
-      {
+      { 
         id: 23, name: "PHARREL VIBE", genre: "R&B", bpm: 94, key: "F Minor", 
         image: "https://www.dropbox.com/scl/fi/mrpom7j6iaamctx8yi0kn/pharrell-1-inmy.webp?rlkey=q1r6otuh1fwayvxufcy8tdx5m&st=ww7rdamd&raw=1",
         src: "https://www.dropbox.com/scl/fi/8y7go5l25my1iiunyk9br/PHARREL-VIBE_94_BPM_F_MINOR.mp3?rlkey=kvn7to2cu4msrmzli0mg0cduc&st=33318fq9&raw=1",          
@@ -979,7 +973,6 @@
         const cleanKey = beat.key.split(' ')[0];
         const cleanScale = beat.key.split(' ')[1] ? beat.key.split(' ')[1].substring(0, 3).toUpperCase() : '';
 
-        // MODIFICADO: Estructura interna con micro-ecualizador inyectado dinámicamente si el beat suena
         const eqHtml = isCurrentBeatPlaying ? `<div class="mini-equalizer"><span></span><span></span><span></span></div>` : '';
 
         card.innerHTML = `
@@ -1014,6 +1007,7 @@
         container.appendChild(card);
       });
       
+      // CORREGIDO: Volvemos a observar todas las clases .fade-in de la aplicación de manera global
       document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     }
 
@@ -1124,7 +1118,6 @@
 
     toggleMenu = () => { document.getElementById('mobile-menu').classList.toggle('open'); }
 
-    /* MODIFICADO: Observer bidireccional fluido */
     const observer = new IntersectionObserver((entries) => { 
       entries.forEach(e => { 
         if (e.isIntersecting) {
@@ -1135,7 +1128,6 @@
       }); 
     }, { threshold: 0.1 });
     
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     window.addEventListener('DOMContentLoaded', renderBeats);
   </script>
 </body>
